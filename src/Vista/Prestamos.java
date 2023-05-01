@@ -4,34 +4,34 @@
  */
 package Vista;
 
-import java.awt.Desktop;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author DBUSTAMANTEP
  */
-public class Home extends javax.swing.JFrame {
+public class Prestamos extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Home
-     */
-    String url;
-    public Home() {
+    //jtable
+    DefaultTableModel modelo = new DefaultTableModel();
+    
+    public Prestamos() {
         initComponents();
         Date date = Date.from(Instant.now());
         
         jLabelTituloFecha.setText(String.valueOf(date));
-         url="";
+        
+        //jtable
+        this.jTablePrestamos.setModel(modelo);
+        this.modelo.addColumn("ID");
+        this.modelo.addColumn("Nombre libro");
+        this.modelo.addColumn("Nombre usuario");
+        this.modelo.addColumn("Estado");
     }
     
    
@@ -58,13 +58,11 @@ public class Home extends javax.swing.JFrame {
         jLabelTituloFecha = new javax.swing.JLabel();
         jLabelTituloBienvenido = new javax.swing.JLabel();
         jLabelExit = new javax.swing.JLabel();
-        jLabelTituloNoticias = new javax.swing.JLabel();
-        jLabelFoto1 = new javax.swing.JLabel();
-        jLabelFoto2 = new javax.swing.JLabel();
-        jLabelTituloNoticias1 = new javax.swing.JLabel();
-        jLabelTituloNoticias2 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTablePrestamos = new javax.swing.JTable();
+        jButtonNuevoLibro = new javax.swing.JButton();
+        jButtonBorrarPrestamo = new javax.swing.JButton();
+        jButtonEditrarPrestamo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -220,14 +218,14 @@ public class Home extends javax.swing.JFrame {
             BarraFechaHoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BarraFechaHoraLayout.createSequentialGroup()
                 .addGap(41, 41, 41)
-                .addComponent(jLabelTituloFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addComponent(jLabelTituloFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         BarraFechaHoraLayout.setVerticalGroup(
             BarraFechaHoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BarraFechaHoraLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jLabelTituloFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(jLabelTituloFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
 
@@ -235,7 +233,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabelTituloBienvenido.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabelTituloBienvenido.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelTituloBienvenido.setText("Bienvenido");
+        jLabelTituloBienvenido.setText("Prestamos");
         BackGround.add(jLabelTituloBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, -1));
 
         jLabelExit.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -250,45 +248,59 @@ public class Home extends javax.swing.JFrame {
         });
         BackGround.add(jLabelExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 0, 40, -1));
 
-        jLabelTituloNoticias.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabelTituloNoticias.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelTituloNoticias.setText("Noticias");
-        BackGround.add(jLabelTituloNoticias, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+        jTablePrestamos.setBackground(new java.awt.Color(255, 255, 255));
+        jTablePrestamos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTablePrestamos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTablePrestamos.setForeground(new java.awt.Color(255, 255, 255));
+        jTablePrestamos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombre libro", "Nombre usuario", "Estado"
+            }
+        ));
+        jTablePrestamos.setGridColor(new java.awt.Color(0, 0, 0));
+        jTablePrestamos.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        jScrollPane1.setViewportView(jTablePrestamos);
 
-        jLabelFoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/libros1.png"))); // NOI18N
-        BackGround.add(jLabelFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 490, 240, 200));
+        BackGround.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 860, -1));
 
-        jLabelFoto2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/libros2.png"))); // NOI18N
-        BackGround.add(jLabelFoto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 250, 210));
-
-        jLabelTituloNoticias1.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabelTituloNoticias1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelTituloNoticias1.setText("Ultimos días de la FilBo 2023:Estos son algunos de los libros más vendidos");
-        jLabelTituloNoticias1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabelTituloNoticias1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelTituloNoticias1MouseClicked(evt);
+        jButtonNuevoLibro.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonNuevoLibro.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jButtonNuevoLibro.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonNuevoLibro.setText("Nuevo Prestamo");
+        jButtonNuevoLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevoLibroActionPerformed(evt);
             }
         });
-        BackGround.add(jLabelTituloNoticias1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 630, 60));
+        BackGround.add(jButtonNuevoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 150, 40));
 
-        jLabelTituloNoticias2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelTituloNoticias2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelTituloNoticias2.setText("Así funciona BuscaLibre el Stand sin libros de la FilBo");
-        jLabelTituloNoticias2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelTituloNoticias2MouseClicked(evt);
+        jButtonBorrarPrestamo.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonBorrarPrestamo.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jButtonBorrarPrestamo.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonBorrarPrestamo.setText("Borrar Prestamo");
+        jButtonBorrarPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarPrestamoActionPerformed(evt);
             }
         });
-        BackGround.add(jLabelTituloNoticias2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 480, -1));
+        BackGround.add(jButtonBorrarPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 670, 150, 40));
 
-        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        BackGround.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, 510, 20));
-
-        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        BackGround.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 590, 20));
+        jButtonEditrarPrestamo.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonEditrarPrestamo.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jButtonEditrarPrestamo.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonEditrarPrestamo.setText("Editar Prestamo");
+        jButtonEditrarPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditrarPrestamoActionPerformed(evt);
+            }
+        });
+        BackGround.add(jButtonEditrarPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 670, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -316,7 +328,7 @@ public class Home extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Libros");
         this.setVisible(false);
         
-        Libros libros=new Libros();
+        Prestamos libros=new Prestamos();
         libros.setVisible(true);
     }//GEN-LAST:event_jButtonLibrosActionPerformed
 
@@ -339,32 +351,22 @@ public class Home extends javax.swing.JFrame {
     private void jLabelExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelExitMousePressed
         JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
-             
     }//GEN-LAST:event_jLabelExitMousePressed
 
-    private void jLabelTituloNoticias1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTituloNoticias1MouseClicked
-        url="https://mascolombia.com/ultimos-dias-de-la-filbo-2023-estos-son-algunos-de-los-libros-mas-vendidos-de-las-editoriales-independientes-colombianas/";
-        try {
-            //Desktop.getDesktop().browse(New Uri(String));
-            Desktop.getDesktop().browse(new URI(url));
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jLabelTituloNoticias1MouseClicked
+    private void jButtonBorrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPrestamoActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonBorrarPrestamoActionPerformed
 
-    private void jLabelTituloNoticias2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelTituloNoticias2MouseClicked
-         url="https://www.eltiempo.com/tecnosfera/novedades-tecnologia/asi-funciona-buscalibre-en-la-feria-del-libro-de-bogota-763901";
-        try {
-            //Desktop.getDesktop().browse(New Uri(String));
-            Desktop.getDesktop().browse(new URI(url));
-        } catch (URISyntaxException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jLabelTituloNoticias2MouseClicked
+    private void jButtonNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoLibroActionPerformed
+        this.setVisible(false);
+        
+        NuevoLibro nuevoLibro= new NuevoLibro();
+        nuevoLibro.setVisible(true);
+    }//GEN-LAST:event_jButtonNuevoLibroActionPerformed
+
+    private void jButtonEditrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditrarPrestamoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditrarPrestamoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,20 +385,27 @@ public class Home extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Prestamos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Prestamos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Prestamos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Home.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Prestamos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new Prestamos().setVisible(true);
             }
         });
     }
@@ -405,23 +414,21 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel BackGround;
     private javax.swing.JPanel BarraFechaHora;
     private javax.swing.JPanel BarraLateral;
+    private javax.swing.JButton jButtonBorrarPrestamo;
+    private javax.swing.JButton jButtonEditrarPrestamo;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonLibros;
+    private javax.swing.JButton jButtonNuevoLibro;
     private javax.swing.JButton jButtonPrestamos;
     private javax.swing.JButton jButtonUsuarios;
     private javax.swing.JLabel jLabelExit;
-    private javax.swing.JLabel jLabelFoto1;
-    private javax.swing.JLabel jLabelFoto2;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JLabel jLabelTitulo1;
     private javax.swing.JLabel jLabelTituloBienvenido;
     private javax.swing.JLabel jLabelTituloFecha;
-    private javax.swing.JLabel jLabelTituloNoticias;
-    private javax.swing.JLabel jLabelTituloNoticias1;
-    private javax.swing.JLabel jLabelTituloNoticias2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTablePrestamos;
     // End of variables declaration//GEN-END:variables
 }
