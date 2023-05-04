@@ -220,8 +220,8 @@ public class NuevoUsuario extends javax.swing.JFrame {
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
             this.setVisible(false);
-            Libros libros=new Libros();
-            libros.setVisible(true);
+            Usuarios usuarios=new Usuarios();
+            usuarios.setVisible(true);
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
