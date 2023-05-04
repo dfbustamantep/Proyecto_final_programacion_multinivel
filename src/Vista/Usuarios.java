@@ -326,7 +326,7 @@ public class Usuarios extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Libros");
         this.setVisible(false);
         
-        Usuarios libros=new Usuarios();
+        Libros libros=new Libros();
         libros.setVisible(true);
     }//GEN-LAST:event_jButtonLibrosActionPerformed
 

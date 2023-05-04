@@ -63,7 +63,7 @@ public class Prestamos extends javax.swing.JFrame {
         jLabelExit = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePrestamos = new javax.swing.JTable();
-        jButtonNuevoLibro = new javax.swing.JButton();
+        jButtonNuevoPrestamo = new javax.swing.JButton();
         jButtonBorrarPrestamo = new javax.swing.JButton();
         jButtonEditrarPrestamo = new javax.swing.JButton();
 
@@ -272,16 +272,16 @@ public class Prestamos extends javax.swing.JFrame {
 
         BackGround.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 860, -1));
 
-        jButtonNuevoLibro.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonNuevoLibro.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jButtonNuevoLibro.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonNuevoLibro.setText("Nuevo Prestamo");
-        jButtonNuevoLibro.addActionListener(new java.awt.event.ActionListener() {
+        jButtonNuevoPrestamo.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonNuevoPrestamo.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jButtonNuevoPrestamo.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonNuevoPrestamo.setText("Nuevo Prestamo");
+        jButtonNuevoPrestamo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNuevoLibroActionPerformed(evt);
+                jButtonNuevoPrestamoActionPerformed(evt);
             }
         });
-        BackGround.add(jButtonNuevoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 150, 40));
+        BackGround.add(jButtonNuevoPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 150, 40));
 
         jButtonBorrarPrestamo.setBackground(new java.awt.Color(255, 255, 255));
         jButtonBorrarPrestamo.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -360,12 +360,12 @@ public class Prestamos extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonBorrarPrestamoActionPerformed
 
-    private void jButtonNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoLibroActionPerformed
+    private void jButtonNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoPrestamoActionPerformed
         this.setVisible(false);
         
         NuevoPrestamo nuevoPrestamo= new NuevoPrestamo();
         nuevoPrestamo.setVisible(true);
-    }//GEN-LAST:event_jButtonNuevoLibroActionPerformed
+    }//GEN-LAST:event_jButtonNuevoPrestamoActionPerformed
 
     private void jButtonEditrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditrarPrestamoActionPerformed
         // TODO add your handling code here:
@@ -421,7 +421,7 @@ public class Prestamos extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEditrarPrestamo;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonLibros;
-    private javax.swing.JButton jButtonNuevoLibro;
+    private javax.swing.JButton jButtonNuevoPrestamo;
     private javax.swing.JButton jButtonPrestamos;
     private javax.swing.JButton jButtonUsuarios;
     private javax.swing.JLabel jLabelExit;
