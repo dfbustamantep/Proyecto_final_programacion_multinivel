@@ -44,6 +44,7 @@ public class NuevoLibro extends javax.swing.JFrame {
         jTextFieldResumen = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         LblResumen = new javax.swing.JLabel();
+        jimagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -185,6 +186,9 @@ public class NuevoLibro extends javax.swing.JFrame {
         LblResumen.setText("Resumen");
         jPanelFondo.add(LblResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 330, 40));
 
+        jimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/nuevolibro.png"))); // NOI18N
+        jPanelFondo.add(jimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 320, 500));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -300,5 +304,6 @@ public class NuevoLibro extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNEjemplares;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldResumen;
+    private javax.swing.JLabel jimagen;
     // End of variables declaration//GEN-END:variables
 }

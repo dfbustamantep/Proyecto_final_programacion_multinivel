@@ -41,6 +41,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         jButtonGuaradr = new javax.swing.JButton();
         jTextFieldNombre = new javax.swing.JTextField();
         jTextFieldEstadoPrestamo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -96,7 +97,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
                 jTextFieldUsuarioActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 380, -1));
+        jPanelFondo.add(jTextFieldUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 310, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
@@ -156,15 +157,18 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         });
         jPanelFondo.add(jTextFieldEstadoPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 380, -1));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/prestamo.png"))); // NOI18N
+        jPanelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 550, 290));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 812, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
         );
 
         pack();
@@ -255,6 +259,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     private javax.swing.JLabel Lblnomlibro;
     private javax.swing.JLabel Titulo;
     private javax.swing.JButton jButtonGuaradr;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;

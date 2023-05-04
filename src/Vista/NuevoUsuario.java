@@ -44,6 +44,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jTextFieldNContacto = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         LblNContacto = new javax.swing.JLabel();
+        imagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -157,7 +158,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 jTextFieldCorreoActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 380, -1));
+        jPanelFondo.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 320, -1));
 
         jTextFieldNContacto.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNContacto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -174,7 +175,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 jTextFieldNContactoActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 380, -1));
+        jPanelFondo.add(jTextFieldNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 310, -1));
 
         jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
@@ -185,6 +186,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
         LblNContacto.setText("Numero de contacto");
         jPanelFondo.add(LblNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 330, 40));
 
+        imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/usuario1.png"))); // NOI18N
+        imagen.setText("jLabel1");
+        jPanelFondo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 540, 610));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -193,7 +198,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
         );
 
         pack();
@@ -291,6 +296,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel LblNContacto;
     private javax.swing.JLabel LblnomUsuario;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JLabel imagen;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JSeparator jSeparator2;

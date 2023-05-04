@@ -363,8 +363,8 @@ public class Prestamos extends javax.swing.JFrame {
     private void jButtonNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoLibroActionPerformed
         this.setVisible(false);
         
-        NuevoLibro nuevoLibro= new NuevoLibro();
-        nuevoLibro.setVisible(true);
+        NuevoPrestamo nuevoPrestamo= new NuevoPrestamo();
+        nuevoPrestamo.setVisible(true);
     }//GEN-LAST:event_jButtonNuevoLibroActionPerformed
 
     private void jButtonEditrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditrarPrestamoActionPerformed
