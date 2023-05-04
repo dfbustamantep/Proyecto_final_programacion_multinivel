@@ -7,7 +7,9 @@ package Vista;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -22,10 +24,10 @@ public class Usuarios extends javax.swing.JFrame {
     
     public Usuarios() {
         initComponents();
-        Date date = Date.from(Instant.now());
         
-        jLabelTituloFecha.setText(String.valueOf(date));
-        
+        LocalDate now=LocalDate.now();
+        Locale spanishLocale=new Locale("es","ES");
+        jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY",spanishLocale)));
         //jtable
         this.jTableUsuarios.setModel(modelo);
         this.modelo.addColumn("ID");
