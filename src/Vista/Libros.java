@@ -269,7 +269,6 @@ public class Libros extends javax.swing.JFrame {
                 "ID", "Nombre", "Autor", "# ejemplares", "# ejemplares disponibles", "Resumen"
             }
         ));
-        jTableLibros.setGridColor(new java.awt.Color(0, 0, 0));
         jTableLibros.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTableLibros);
 
