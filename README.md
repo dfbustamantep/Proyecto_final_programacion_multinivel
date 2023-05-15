@@ -1,5 +1,5 @@
 <h1 align="center"> Proyecto Final Progrmación multinivel💣 </h1>
-## Autor ✒️
+<h2> Autor ✒️ </h2>
 <sub> Daniel Felipe Bustamante Pérez 🚀 </sub>
 
 ## Enunciado del problema	📰
