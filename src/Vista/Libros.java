@@ -31,7 +31,7 @@ public class Libros extends javax.swing.JFrame {
         
         //jtable
         this.jTableLibros.setModel(modelo);
-        this.modelo.addColumn("ID");
+        this.modelo.addColumn("ISBN");
         this.modelo.addColumn("Nombre");
         this.modelo.addColumn("Autor");
         this.modelo.addColumn("Fecha publicacion");
@@ -354,7 +354,7 @@ public class Libros extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarLibroActionPerformed
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButtonBorrarLibroActionPerformed
 
     private void jButtonNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoLibroActionPerformed

@@ -10,6 +10,7 @@ package Modelo;
  */
 public class Usuarios {
     //private int ID;
+    private String documento;
     private String nombre;
     private String apellido;
     private String correo;
@@ -46,5 +47,14 @@ public class Usuarios {
     public void setnContacto(int nContacto) {
         this.nContacto = nContacto;
     }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+    
     
 }

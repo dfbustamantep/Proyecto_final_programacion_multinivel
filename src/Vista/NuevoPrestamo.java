@@ -74,18 +74,18 @@ public class NuevoPrestamo extends javax.swing.JFrame {
 
         Lblnomlibro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         Lblnomlibro.setForeground(new java.awt.Color(0, 0, 0));
-        Lblnomlibro.setText("Nombre del libro");
+        Lblnomlibro.setText("ISBN Libro");
         jPanelFondo.add(Lblnomlibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 330, 40));
 
         LblUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         LblUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        LblUsuario.setText("Nombre del usuario");
+        LblUsuario.setText("Documento del usuario");
         jPanelFondo.add(LblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 330, 40));
 
         jTextFieldUsuario.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldUsuario.setText("Ingrese el nombre del usuario");
+        jTextFieldUsuario.setText("Ingrese el ISBN del usuario");
         jTextFieldUsuario.setBorder(null);
         jTextFieldUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -126,7 +126,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldNombre.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldNombre.setText("Ingrese el nombre del libro");
+        jTextFieldNombre.setText("Ingrese el ISBN del libro");
         jTextFieldNombre.setBorder(null);
         jTextFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -190,8 +190,8 @@ public class NuevoPrestamo extends javax.swing.JFrame {
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
             this.setVisible(false);
-            Libros libros=new Libros();
-            libros.setVisible(true);
+            Prestamos prestamos=new Prestamos();
+            prestamos.setVisible(true);
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed

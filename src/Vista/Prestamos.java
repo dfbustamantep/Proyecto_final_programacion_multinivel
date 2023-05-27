@@ -32,8 +32,8 @@ public class Prestamos extends javax.swing.JFrame {
         //jtable
         this.jTablePrestamos.setModel(modelo);
         this.modelo.addColumn("ID");
-        this.modelo.addColumn("Nombre libro");
-        this.modelo.addColumn("Nombre usuario");
+        this.modelo.addColumn("ISBN libro");
+        this.modelo.addColumn("Documento usuario");
         this.modelo.addColumn("Estado");
     }
     
@@ -357,7 +357,7 @@ public class Prestamos extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPrestamoActionPerformed
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButtonBorrarPrestamoActionPerformed
 
     private void jButtonNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoPrestamoActionPerformed

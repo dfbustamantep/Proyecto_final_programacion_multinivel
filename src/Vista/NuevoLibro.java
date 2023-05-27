@@ -32,19 +32,22 @@ public class NuevoLibro extends javax.swing.JFrame {
         Titulo = new javax.swing.JLabel();
         JLabelSalida = new javax.swing.JLabel();
         LblNEjemplares = new javax.swing.JLabel();
-        Lblnomlibro = new javax.swing.JLabel();
+        LblISBNlirbo = new javax.swing.JLabel();
         Lblautor = new javax.swing.JLabel();
         jTextFieldAutor = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jButtonGuaradr = new javax.swing.JButton();
-        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldISBN = new javax.swing.JTextField();
         jTextFieldNEjemplares = new javax.swing.JTextField();
         jTextFieldResumen = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         LblResumen = new javax.swing.JLabel();
         jimagen = new javax.swing.JLabel();
+        Lblnomlibro = new javax.swing.JLabel();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -73,17 +76,17 @@ public class NuevoLibro extends javax.swing.JFrame {
         LblNEjemplares.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         LblNEjemplares.setForeground(new java.awt.Color(0, 0, 0));
         LblNEjemplares.setText("Numero de ejemplares");
-        jPanelFondo.add(LblNEjemplares, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 330, 40));
+        jPanelFondo.add(LblNEjemplares, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 330, 40));
 
-        Lblnomlibro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        Lblnomlibro.setForeground(new java.awt.Color(0, 0, 0));
-        Lblnomlibro.setText("Nombre del libro");
-        jPanelFondo.add(Lblnomlibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 330, 40));
+        LblISBNlirbo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        LblISBNlirbo.setForeground(new java.awt.Color(0, 0, 0));
+        LblISBNlirbo.setText("ISBN libro");
+        jPanelFondo.add(LblISBNlirbo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 330, 40));
 
         Lblautor.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         Lblautor.setForeground(new java.awt.Color(0, 0, 0));
         Lblautor.setText("Autor");
-        jPanelFondo.add(Lblautor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 330, 40));
+        jPanelFondo.add(Lblautor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 330, 40));
 
         jTextFieldAutor.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldAutor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -100,19 +103,19 @@ public class NuevoLibro extends javax.swing.JFrame {
                 jTextFieldAutorActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 380, -1));
+        jPanelFondo.add(jTextFieldAutor, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 380, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelFondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 310, 10));
+        jPanelFondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 310, 10));
 
         jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelFondo.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 310, 10));
+        jPanelFondo.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 310, 10));
 
         jSeparator4.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelFondo.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 310, 10));
+        jPanelFondo.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 310, 10));
 
         jButtonGuaradr.setBackground(new java.awt.Color(255, 255, 255));
         jButtonGuaradr.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -124,24 +127,24 @@ public class NuevoLibro extends javax.swing.JFrame {
                 jButtonGuaradrActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, -1, 50));
+        jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 610, -1, 50));
 
-        jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldNombre.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldNombre.setText("Ingrese el nombre del libro");
-        jTextFieldNombre.setBorder(null);
-        jTextFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTextFieldISBN.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldISBN.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldISBN.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldISBN.setText("Ingrese el ISBN del libro");
+        jTextFieldISBN.setBorder(null);
+        jTextFieldISBN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldNombreMousePressed(evt);
+                jTextFieldISBNMousePressed(evt);
             }
         });
-        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldISBN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreActionPerformed(evt);
+                jTextFieldISBNActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 380, -1));
+        jPanelFondo.add(jTextFieldISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 380, -1));
 
         jTextFieldNEjemplares.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNEjemplares.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -158,7 +161,7 @@ public class NuevoLibro extends javax.swing.JFrame {
                 jTextFieldNEjemplaresActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldNEjemplares, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 380, -1));
+        jPanelFondo.add(jTextFieldNEjemplares, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 380, -1));
 
         jTextFieldResumen.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldResumen.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -175,29 +178,55 @@ public class NuevoLibro extends javax.swing.JFrame {
                 jTextFieldResumenActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 380, -1));
+        jPanelFondo.add(jTextFieldResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 540, 380, -1));
 
         jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelFondo.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 310, 10));
+        jPanelFondo.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, 310, 10));
 
         LblResumen.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         LblResumen.setForeground(new java.awt.Color(0, 0, 0));
         LblResumen.setText("Resumen");
-        jPanelFondo.add(LblResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 330, 40));
+        jPanelFondo.add(LblResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, 330, 40));
 
         jimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/nuevolibro.png"))); // NOI18N
         jPanelFondo.add(jimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 320, 500));
+
+        Lblnomlibro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Lblnomlibro.setForeground(new java.awt.Color(0, 0, 0));
+        Lblnomlibro.setText("Nombre del libro");
+        jPanelFondo.add(Lblnomlibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 330, 40));
+
+        jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldNombre.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldNombre.setText("Ingrese el nombre del libro");
+        jTextFieldNombre.setBorder(null);
+        jTextFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextFieldNombreMousePressed(evt);
+            }
+        });
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNombreActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 380, -1));
+
+        jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        jPanelFondo.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 310, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
         );
 
         pack();
@@ -223,15 +252,15 @@ public class NuevoLibro extends javax.swing.JFrame {
             libros.setVisible(true);
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
-    private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
-        jTextFieldNombre.setText("");
-        jTextFieldNombre.setForeground(Color.BLACK);
+    private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
+        jTextFieldISBN.setText("");
+        jTextFieldISBN.setForeground(Color.BLACK);
         //jTextFieldNombre.setForeground();
-    }//GEN-LAST:event_jTextFieldNombreMousePressed
+    }//GEN-LAST:event_jTextFieldISBNMousePressed
 
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+    private void jTextFieldISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldISBNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+    }//GEN-LAST:event_jTextFieldISBNActionPerformed
 
     private void jTextFieldNEjemplaresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNEjemplaresMousePressed
         jTextFieldNEjemplares.setText("");
@@ -251,6 +280,14 @@ public class NuevoLibro extends javax.swing.JFrame {
     private void jTextFieldResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldResumenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldResumenActionPerformed
+
+    private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreMousePressed
+
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -289,6 +326,7 @@ public class NuevoLibro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabelSalida;
+    private javax.swing.JLabel LblISBNlirbo;
     private javax.swing.JLabel LblNEjemplares;
     private javax.swing.JLabel LblResumen;
     private javax.swing.JLabel Lblautor;
@@ -300,7 +338,9 @@ public class NuevoLibro extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTextFieldAutor;
+    private javax.swing.JTextField jTextFieldISBN;
     private javax.swing.JTextField jTextFieldNEjemplares;
     private javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTextField jTextFieldResumen;

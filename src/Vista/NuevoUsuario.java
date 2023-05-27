@@ -45,6 +45,9 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         LblNContacto = new javax.swing.JLabel();
         imagen = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jTextFieldDocumento = new javax.swing.JTextField();
+        LblDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -73,17 +76,17 @@ public class NuevoUsuario extends javax.swing.JFrame {
         LblCorreo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         LblCorreo.setForeground(new java.awt.Color(0, 0, 0));
         LblCorreo.setText("Correo del usuario");
-        jPanelFondo.add(LblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 330, 40));
+        jPanelFondo.add(LblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 330, 40));
 
         LblnomUsuario.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         LblnomUsuario.setForeground(new java.awt.Color(0, 0, 0));
         LblnomUsuario.setText("Nombre del usuario");
-        jPanelFondo.add(LblnomUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 330, 40));
+        jPanelFondo.add(LblnomUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 330, 40));
 
         LblApellido.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         LblApellido.setForeground(new java.awt.Color(0, 0, 0));
         LblApellido.setText("Apellido del usuario");
-        jPanelFondo.add(LblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 330, 40));
+        jPanelFondo.add(LblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 330, 40));
 
         jTextFieldApellidoUsuario.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldApellidoUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -100,19 +103,19 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 jTextFieldApellidoUsuarioActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldApellidoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 380, -1));
+        jPanelFondo.add(jTextFieldApellidoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 380, -1));
 
         jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelFondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 310, 10));
+        jPanelFondo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, 310, 10));
 
         jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelFondo.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 310, 10));
+        jPanelFondo.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 310, 10));
 
         jSeparator4.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator4.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelFondo.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 310, 10));
+        jPanelFondo.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 310, 10));
 
         jButtonGuardar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonGuardar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
@@ -124,7 +127,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 540, -1, 50));
+        jPanelFondo.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 600, -1, 50));
 
         jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -141,7 +144,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 jTextFieldNombreActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 380, -1));
+        jPanelFondo.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 380, -1));
 
         jTextFieldCorreo.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldCorreo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -158,7 +161,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 jTextFieldCorreoActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 320, -1));
+        jPanelFondo.add(jTextFieldCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 320, -1));
 
         jTextFieldNContacto.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNContacto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -175,30 +178,58 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 jTextFieldNContactoActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 310, -1));
+        jPanelFondo.add(jTextFieldNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 310, -1));
 
         jSeparator5.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator5.setForeground(new java.awt.Color(0, 0, 0));
-        jPanelFondo.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 310, 10));
+        jPanelFondo.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 310, 10));
 
         LblNContacto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         LblNContacto.setForeground(new java.awt.Color(0, 0, 0));
         LblNContacto.setText("Numero de contacto");
-        jPanelFondo.add(LblNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 330, 40));
+        jPanelFondo.add(LblNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 330, 40));
 
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/usuario1.png"))); // NOI18N
         imagen.setText("jLabel1");
-        jPanelFondo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 540, 610));
+        jPanelFondo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 540, 610));
+
+        jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
+        jPanelFondo.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 310, 10));
+
+        jTextFieldDocumento.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldDocumento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldDocumento.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldDocumento.setText("Ingrese el documento del usuario");
+        jTextFieldDocumento.setBorder(null);
+        jTextFieldDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextFieldDocumentoMousePressed(evt);
+            }
+        });
+        jTextFieldDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldDocumentoActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jTextFieldDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 380, -1));
+
+        LblDocumento.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        LblDocumento.setForeground(new java.awt.Color(0, 0, 0));
+        LblDocumento.setText("Documento del usuario");
+        jPanelFondo.add(LblDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 330, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 810, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 627, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -253,6 +284,14 @@ public class NuevoUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNContactoActionPerformed
 
+    private void jTextFieldDocumentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldDocumentoMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDocumentoMousePressed
+
+    private void jTextFieldDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldDocumentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -293,6 +332,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel JLabelSalida;
     private javax.swing.JLabel LblApellido;
     private javax.swing.JLabel LblCorreo;
+    private javax.swing.JLabel LblDocumento;
     private javax.swing.JLabel LblNContacto;
     private javax.swing.JLabel LblnomUsuario;
     private javax.swing.JLabel Titulo;
@@ -303,8 +343,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTextFieldApellidoUsuario;
     private javax.swing.JTextField jTextFieldCorreo;
+    private javax.swing.JTextField jTextFieldDocumento;
     private javax.swing.JTextField jTextFieldNContacto;
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables

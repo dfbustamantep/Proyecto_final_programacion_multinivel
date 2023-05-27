@@ -30,7 +30,7 @@ public class Usuarios extends javax.swing.JFrame {
         jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY",spanishLocale)));
         //jtable
         this.jTableUsuarios.setModel(modelo);
-        this.modelo.addColumn("ID");
+        this.modelo.addColumn("Documento");
         this.modelo.addColumn("Nombre");
         this.modelo.addColumn("Apellido");
         this.modelo.addColumn("Correo");
@@ -352,7 +352,7 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarUsuarioActionPerformed
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButtonBorrarUsuarioActionPerformed
 
     private void jButtonNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoUsuarioActionPerformed

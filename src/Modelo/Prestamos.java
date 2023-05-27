@@ -10,24 +10,24 @@ package Modelo;
  */
 public class Prestamos {
     //private int ID;
-    private String nombreLibro;
-    private String nombreUsuario;
+    private String ISBNLibro;
+    private String documentoUsuario;
     private String Estado;
 
-    public String getNombreLibro() {
-        return nombreLibro;
+    public String getISBNLibro() {
+        return ISBNLibro;
     }
 
-    public void setNombreLibro(String nombreLibro) {
-        this.nombreLibro = nombreLibro;
+    public void setISBNLibro(String ISBNLibro) {
+        this.ISBNLibro = ISBNLibro;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getDocumentoUsuario() {
+        return documentoUsuario;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setDocumentoUsuario(String documentoUsuario) {
+        this.documentoUsuario = documentoUsuario;
     }
 
     public String getEstado() {
