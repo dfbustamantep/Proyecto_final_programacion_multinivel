@@ -5,6 +5,10 @@
 package Vista;
 
 import java.awt.Color;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -247,9 +251,14 @@ public class NuevoLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldAutorActionPerformed
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
-            this.setVisible(false);
-            Libros libros=new Libros();
-            libros.setVisible(true);
+            if((jTextFieldNombre.getText()!="")&&(jTextFieldISBN.getText()!="")&&(jTextFieldAutor.getText()!="")&&(jTextFieldNEjemplares.getText()!="")&&(jTextFieldResumen.getText()!="")){
+                generarReporte();
+                this.setVisible(false);
+                Libros libros=new Libros();
+                libros.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null,"Por favor llene todos los campos");
+            }
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
@@ -257,7 +266,7 @@ public class NuevoLibro extends javax.swing.JFrame {
         jTextFieldISBN.setForeground(Color.BLACK);
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldISBNMousePressed
-
+ 
     private void jTextFieldISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldISBNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldISBNActionPerformed
@@ -282,13 +291,28 @@ public class NuevoLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldResumenActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
-        // TODO add your handling code here:
+        jTextFieldNombre.setText("");
+        jTextFieldNombre.setForeground(Color.BLACK);
+        //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldNombreMousePressed
 
     private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
+     private void generarReporte() {
+         try{
+            BufferedWriter outStream = new BufferedWriter(new FileWriter("ReporteNuevosLibros.csv", true));
+            
+            outStream.write(jTextFieldNombre.getText()+","+jTextFieldISBN.getText()+","+jTextFieldAutor.getText()+","+jTextFieldNEjemplares.getText()+","+jTextFieldResumen.getText()+"\n");
+            outStream.close();
+            JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente el registro");
+            // System.out.println("Registro guardado de manera exitosa");
+            
+        }catch(IOException exception){
+            JOptionPane.showMessageDialog(null, "Se ha producido un error intente nuevamente");
+        }
+    }
     /**
      * @param args the command line arguments
      */

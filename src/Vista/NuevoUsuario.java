@@ -5,6 +5,10 @@
 package Vista;
 
 import java.awt.Color;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -238,7 +242,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
         System.exit(1);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
-
+    
     private void jTextFieldApellidoUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldApellidoUsuarioMousePressed
         jTextFieldApellidoUsuario.setText("");
         jTextFieldApellidoUsuario.setForeground(Color.BLACK);
@@ -250,9 +254,15 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldApellidoUsuarioActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-            this.setVisible(false);
-            Usuarios usuarios=new Usuarios();
-            usuarios.setVisible(true);
+            if((jTextFieldNombre.getText()!="")&&(jTextFieldDocumento.getText()!="")&&(jTextFieldNombre.getText()!="")&&(jTextFieldApellidoUsuario.getText()!="")&&(jTextFieldCorreo.getText()!="")&&(jTextFieldNContacto.getText()!="")){
+                generarReporte();
+                this.setVisible(false);
+                Usuarios usuarios=new Usuarios();
+                usuarios.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null,"Por favor llene todos los campos");
+            }
+                       
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
@@ -285,13 +295,28 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNContactoActionPerformed
 
     private void jTextFieldDocumentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldDocumentoMousePressed
-        // TODO add your handling code here:
+        jTextFieldDocumento.setText("");
+        jTextFieldDocumento.setForeground(Color.BLACK);
+        // jTextFieldDescripcion.setForeground();
     }//GEN-LAST:event_jTextFieldDocumentoMousePressed
 
     private void jTextFieldDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDocumentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDocumentoActionPerformed
-
+    
+    private void generarReporte() {
+         try{
+            BufferedWriter outStream = new BufferedWriter(new FileWriter("ReporteNuevosUsuarios.csv", true));
+            
+            outStream.write(jTextFieldDocumento.getText()+","+jTextFieldNombre.getText()+","+jTextFieldApellidoUsuario.getText()+","+jTextFieldCorreo.getText()+","+jTextFieldNContacto.getText()+"\n");
+            outStream.close();
+            JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente el registro");
+            // System.out.println("Registro guardado de manera exitosa");
+            
+        }catch(IOException exception){
+            JOptionPane.showMessageDialog(null, "Se ha producido un error intente nuevamente");
+        }
+    }
     /**
      * @param args the command line arguments
      */

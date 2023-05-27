@@ -5,6 +5,11 @@
 package Vista;
 
 import java.awt.Color;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -39,7 +44,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jButtonGuaradr = new javax.swing.JButton();
-        jTextFieldNombre = new javax.swing.JTextField();
+        jTextFieldISBN = new javax.swing.JTextField();
         jTextFieldEstadoPrestamo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -85,7 +90,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         jTextFieldUsuario.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTextFieldUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldUsuario.setText("Ingrese el ISBN del usuario");
+        jTextFieldUsuario.setText("Ingrese el documento del usuario");
         jTextFieldUsuario.setBorder(null);
         jTextFieldUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -123,22 +128,22 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         });
         jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, 50));
 
-        jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
-        jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldNombre.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldNombre.setText("Ingrese el ISBN del libro");
-        jTextFieldNombre.setBorder(null);
-        jTextFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTextFieldISBN.setBackground(new java.awt.Color(255, 255, 255));
+        jTextFieldISBN.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jTextFieldISBN.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldISBN.setText("Ingrese el ISBN del libro");
+        jTextFieldISBN.setBorder(null);
+        jTextFieldISBN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldNombreMousePressed(evt);
+                jTextFieldISBNMousePressed(evt);
             }
         });
-        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldISBN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreActionPerformed(evt);
+                jTextFieldISBNActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 380, -1));
+        jPanelFondo.add(jTextFieldISBN, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 380, -1));
 
         jTextFieldEstadoPrestamo.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldEstadoPrestamo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -189,20 +194,26 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
+            if((jTextFieldISBN.getText()!="") && (jTextFieldUsuario.getText()!="") && (jTextFieldEstadoPrestamo.getText()!="")){
+            generarReporte(); 
             this.setVisible(false);
             Prestamos prestamos=new Prestamos();
             prestamos.setVisible(true);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Por favor llene todos los campos");
+            }
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
-    private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
-        jTextFieldNombre.setText("");
-        jTextFieldNombre.setForeground(Color.BLACK);
+    private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
+        jTextFieldISBN.setText("");
+        jTextFieldISBN.setForeground(Color.BLACK);
         //jTextFieldNombre.setForeground();
-    }//GEN-LAST:event_jTextFieldNombreMousePressed
+    }//GEN-LAST:event_jTextFieldISBNMousePressed
 
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+    private void jTextFieldISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldISBNActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+    }//GEN-LAST:event_jTextFieldISBNActionPerformed
 
     private void jTextFieldEstadoPrestamoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldEstadoPrestamoMousePressed
         jTextFieldEstadoPrestamo.setText("");
@@ -214,6 +225,19 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEstadoPrestamoActionPerformed
 
+    private void generarReporte() {
+         try{
+            BufferedWriter outStream = new BufferedWriter(new FileWriter("ReportePrestamo.csv", true));
+            LocalDate now=LocalDate.now();
+            outStream.write(now+jTextFieldISBN.getText()+" , "+jTextFieldUsuario.getText()+" , "+jTextFieldEstadoPrestamo.getText()+"\n");
+            outStream.close();
+            JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente el registro");
+            // System.out.println("Registro guardado de manera exitosa");
+            
+        }catch(IOException exception){
+            JOptionPane.showMessageDialog(null, "Se ha producido un error intente nuevamente");
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -265,7 +289,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField jTextFieldEstadoPrestamo;
-    private javax.swing.JTextField jTextFieldNombre;
+    private javax.swing.JTextField jTextFieldISBN;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
 }
