@@ -14,12 +14,22 @@ import javax.swing.JOptionPane;
  * @author DBUSTAMANTEP
  */
 public class EditarLibro extends javax.swing.JFrame {
-
-    /**
+    Modelo.Libros libroM; 
+            /**
      * Creates new form EditarLibro
      */
-    public EditarLibro() {
+    public EditarLibro(Modelo.Libros libro) {
         initComponents();
+        
+         this.libroM=libro;
+         
+        jTextFieldNombre.setText(libroM.getNombre());
+        jTextFieldISBN.setText(""+libroM.getISBN());
+        jTextFieldAutor.setText(libroM.getAutor());
+        jTextFieldFechaP.setText(libroM.getFechaPublicacion());
+        jTextFieldNEjemplares.setText(""+libroM.getnEjemplares());
+        jTextFieldResumen.setText(""+libroM.getResumen());
+       
     }
 
     /**
@@ -56,6 +66,9 @@ public class EditarLibro extends javax.swing.JFrame {
         LblfechaP = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanelFondo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,7 +106,7 @@ public class EditarLibro extends javax.swing.JFrame {
 
         jTextFieldAutor.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldAutor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldAutor.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldAutor.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldAutor.setText("Ingrese el autor del libro");
         jTextFieldAutor.setBorder(null);
         jTextFieldAutor.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -134,7 +147,7 @@ public class EditarLibro extends javax.swing.JFrame {
 
         jTextFieldISBN.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldISBN.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldISBN.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldISBN.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldISBN.setText("Ingrese el ISBN del libro");
         jTextFieldISBN.setBorder(null);
         jTextFieldISBN.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -151,7 +164,7 @@ public class EditarLibro extends javax.swing.JFrame {
 
         jTextFieldNEjemplares.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNEjemplares.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldNEjemplares.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldNEjemplares.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldNEjemplares.setText("Ingrese el numero de ejemplares del libro");
         jTextFieldNEjemplares.setBorder(null);
         jTextFieldNEjemplares.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,7 +181,7 @@ public class EditarLibro extends javax.swing.JFrame {
 
         jTextFieldResumen.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldResumen.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldResumen.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldResumen.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldResumen.setText("Ingrese el resumen del libro");
         jTextFieldResumen.setBorder(null);
         jTextFieldResumen.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -202,7 +215,7 @@ public class EditarLibro extends javax.swing.JFrame {
 
         jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldNombre.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldNombre.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldNombre.setText("Ingrese el nombre del libro");
         jTextFieldNombre.setBorder(null);
         jTextFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -227,7 +240,7 @@ public class EditarLibro extends javax.swing.JFrame {
 
         jTextFieldFechaP.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldFechaP.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldFechaP.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldFechaP.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldFechaP.setText("Ingrese la fecha de publicacion del libro");
         jTextFieldFechaP.setBorder(null);
         jTextFieldFechaP.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -266,8 +279,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_JLabelSalidaMouseClicked
 
     private void jTextFieldAutorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldAutorMousePressed
-        jTextFieldAutor.setText("");
-        jTextFieldAutor.setForeground(Color.BLACK);
+        
         // jTextFieldDescripcion.setForeground();
     }//GEN-LAST:event_jTextFieldAutorMousePressed
 
@@ -295,10 +307,11 @@ public class EditarLibro extends javax.swing.JFrame {
         libro.setnEjemplares(nEjemplares);
         libro.setnEjemplaresDisponibles(nEjemplares);
         libro.setResumen(resumen);
+        
         try{
             DAOLibros librosd= new DAOLibrosImpl();
-            librosd.Registrar(libro);
-            JOptionPane.showMessageDialog(null, "Registro exitoso");
+            librosd.Modificar(libro);
+            JOptionPane.showMessageDialog(null, "Modificación exitosa");
             /*jTextFieldNombre.setText("");
             jTextFieldISBN.setText("");
             jTextFieldAutor.setText("");
@@ -312,8 +325,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
-        jTextFieldISBN.setText("");
-        jTextFieldISBN.setForeground(Color.BLACK);
+        
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldISBNMousePressed
 
@@ -322,8 +334,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldISBNActionPerformed
 
     private void jTextFieldNEjemplaresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNEjemplaresMousePressed
-        jTextFieldNEjemplares.setText("");
-        jTextFieldNEjemplares.setForeground(Color.BLACK);
+        
         //jTextFieldAnalisis.setForeground();
     }//GEN-LAST:event_jTextFieldNEjemplaresMousePressed
 
@@ -332,8 +343,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNEjemplaresActionPerformed
 
     private void jTextFieldResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldResumenMousePressed
-        jTextFieldResumen.setText("");
-        jTextFieldResumen.setForeground(Color.BLACK);
+       
     }//GEN-LAST:event_jTextFieldResumenMousePressed
 
     private void jTextFieldResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldResumenActionPerformed
@@ -341,8 +351,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldResumenActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
-        jTextFieldNombre.setText("");
-        jTextFieldNombre.setForeground(Color.BLACK);
+        
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldNombreMousePressed
 
@@ -351,8 +360,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldFechaPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFechaPMousePressed
-        jTextFieldFechaP.setText("");
-        jTextFieldFechaP.setForeground(Color.BLACK);
+       
     }//GEN-LAST:event_jTextFieldFechaPMousePressed
 
     private void jTextFieldFechaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaPActionPerformed
@@ -388,8 +396,9 @@ public class EditarLibro extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            Modelo.Libros libro;
             public void run() {
-                new EditarLibro().setVisible(true);
+                new EditarLibro(libro).setVisible(true);
             }
         });
     }

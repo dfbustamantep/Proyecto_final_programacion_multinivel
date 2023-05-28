@@ -29,7 +29,8 @@ public class Libros extends javax.swing.JFrame {
     
     public Libros() {
         initComponents();
-       
+        
+        
         LocalDate now=LocalDate.now();
         Locale spanishLocale=new Locale("es","ES");
         jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY",spanishLocale)));
@@ -43,7 +44,8 @@ public class Libros extends javax.swing.JFrame {
         this.modelo.addColumn("# ejemplares");
         this.modelo.addColumn("# ejemplares disponibles");
         this.modelo.addColumn("Resumen");
-         cargarDatos();  
+        
+        cargarDatos();   
     }
     
    
@@ -263,7 +265,7 @@ public class Libros extends javax.swing.JFrame {
         jTableLibros.setBackground(new java.awt.Color(255, 255, 255));
         jTableLibros.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableLibros.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTableLibros.setForeground(new java.awt.Color(255, 255, 255));
+        jTableLibros.setForeground(new java.awt.Color(0, 0, 0));
         jTableLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -363,28 +365,47 @@ public class Libros extends javax.swing.JFrame {
 
     private void jButtonBorrarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarLibroActionPerformed
         DAOLibros libros=new DAOLibrosImpl();
-        for(int i:jTableLibros.getSelectedRows()){
-            try{
-                 //conseguimos el id del linro que se esta seleccionando en la tabla
-                libros.Eliminar((int)jTableLibros.getValueAt(i, 0));
-                modelo.removeRow(i);
-            }
-            catch(Exception e){
-                System.out.println(e.getMessage());
-            }
-        }
+         if(jTableLibros.getSelectedRow()>-1){
+                //for(int i:jTableLibros.getSelectedRow()){
+                  try{
+                       //conseguimos el id del linro que se esta seleccionando en la tabla
+                      libros.Eliminar((int)jTableLibros.getValueAt(jTableLibros.getSelectedRow(), 0));
+                      modelo.removeRow(jTableLibros.getSelectedRow());
+                  }
+                  catch(Exception e){
+                      System.out.println(e.getMessage());
+                  }
+             // }
+         }else{
+             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
+         }
+       
         //cargarDatos();  
     }//GEN-LAST:event_jButtonBorrarLibroActionPerformed
 
     private void jButtonNuevolibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevolibroActionPerformed
-       this.setVisible(false);
+       this.setVisible(false);  
        
        Vista.NuevoLibro nuevo=new NuevoLibro();
        nuevo.setVisible(true);
     }//GEN-LAST:event_jButtonNuevolibroActionPerformed
 
     private void jButtonEditarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarLibroActionPerformed
-        // TODO add your handling code here:
+        if(jTableLibros.getSelectedRow()>-1){
+            int ISBN=(int)jTableLibros.getValueAt(jTableLibros.getSelectedRow(), 0);
+            DAOLibros dao=new DAOLibrosImpl();
+            try {
+                this.setVisible(false);
+                EditarLibro editar=new EditarLibro(dao.getLibrobyISBN(ISBN));
+                editar.setVisible(true);
+            } catch (Exception ex) {
+                System.out.println("Error al intentar editar "+ex);
+            }
+            
+        }
+        else{
+             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
+         }
     }//GEN-LAST:event_jButtonEditarLibroActionPerformed
 
     /**

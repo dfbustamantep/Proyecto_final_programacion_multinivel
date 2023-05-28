@@ -47,7 +47,7 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
 
     @Override
     public void Modificar(Libros libro) throws Exception {
-        String sql="UPDATE libros SET ISBN=?,nombre=?,autor=?,fechaPublicacion=?,nEjemplares=?,nEjemplaresDisponibles=?,resumen=?";
+        String sql="UPDATE libros SET ISBN=?,nombre=?,autor=?,fechaPublicacion=?,nEjemplares=?,nEjemplaresDisponibles=?,resumen=? WHERE ISBN=?";
         
         try{
             PreparedStatement st;
@@ -59,7 +59,7 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
              st.setInt(5,libro.getnEjemplares());
              st.setInt(6,libro.getnEjemplaresDisponibles());
              st.setString(7, libro.getResumen());
-             
+             st.setInt(8, libro.getISBN());
              st.executeUpdate();
              st.close();
              connector.getConnection().close();
