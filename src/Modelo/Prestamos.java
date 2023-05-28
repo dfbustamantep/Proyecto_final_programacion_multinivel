@@ -9,24 +9,32 @@ package Modelo;
  * @author DBUSTAMANTEP
  */
 public class Prestamos {
-    //private int ID;
-    private String ISBNLibro;
-    private String documentoUsuario;
+    private int ID;
+    int ISBNLibro;
+    private long documentoUsuario;
     private String Estado;
 
-    public String getISBNLibro() {
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+       
+    public int getISBNLibro() {
         return ISBNLibro;
     }
 
-    public void setISBNLibro(String ISBNLibro) {
+    public void setISBNLibro(int ISBNLibro) {
         this.ISBNLibro = ISBNLibro;
     }
 
-    public String getDocumentoUsuario() {
+    public long getDocumentoUsuario() {
         return documentoUsuario;
     }
 
-    public void setDocumentoUsuario(String documentoUsuario) {
+    public void setDocumentoUsuario(long documentoUsuario) {
         this.documentoUsuario = documentoUsuario;
     }
 

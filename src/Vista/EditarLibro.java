@@ -275,7 +275,8 @@ public class EditarLibro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
-        System.exit(1);
+        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        System.exit(0);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
 
     private void jTextFieldAutorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldAutorMousePressed

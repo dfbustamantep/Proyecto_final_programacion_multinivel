@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import DAO.Imp.DAOPrestamosImpl;
+import DAO.Interfaces.DAOPrestamos;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -254,7 +256,7 @@ public class Prestamos extends javax.swing.JFrame {
         jTablePrestamos.setBackground(new java.awt.Color(255, 255, 255));
         jTablePrestamos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTablePrestamos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTablePrestamos.setForeground(new java.awt.Color(255, 255, 255));
+        jTablePrestamos.setForeground(new java.awt.Color(0, 0, 0));
         jTablePrestamos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -357,7 +359,21 @@ public class Prestamos extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPrestamoActionPerformed
-        //this.setVisible(false);
+        DAOPrestamos prestamos=new DAOPrestamosImpl();
+         if(jTablePrestamos.getSelectedRow()>-1){
+                //for(int i:jTableLibros.getSelectedRow()){
+                  try{
+                       //conseguimos el id del linro que se esta seleccionando en la tabla
+                      prestamos.Eliminar((int)jTablePrestamos.getValueAt(jTablePrestamos.getSelectedRow(), 0));
+                      modelo.removeRow(jTablePrestamos.getSelectedRow());
+                  }
+                  catch(Exception e){
+                      System.out.println(e.getMessage());
+                  }
+             // }
+         }else{
+             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
+         }
     }//GEN-LAST:event_jButtonBorrarPrestamoActionPerformed
 
     private void jButtonNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoPrestamoActionPerformed
@@ -368,7 +384,21 @@ public class Prestamos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNuevoPrestamoActionPerformed
 
     private void jButtonEditrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditrarPrestamoActionPerformed
-        // TODO add your handling code here:
+        if(jTablePrestamos.getSelectedRow()>-1){
+            int id=(int)jTablePrestamos.getValueAt(jTablePrestamos.getSelectedRow(), 0);
+            DAOPrestamos dao=new DAOPrestamosImpl();
+            try {
+                this.setVisible(false);
+                EditarPrestamo editar=new EditarPrestamo(dao.getPrestamosbyID(id));
+                editar.setVisible(true);
+            } catch (Exception ex) {
+                System.out.println("Error al intentar editar "+ex);
+            }
+            
+        }
+        else{
+             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
+         }
     }//GEN-LAST:event_jButtonEditrarPrestamoActionPerformed
 
     /**

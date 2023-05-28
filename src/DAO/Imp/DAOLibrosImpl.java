@@ -110,7 +110,7 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
             st.close();
         }
         catch(Exception e){
-        
+            System.out.println("Error "+e);
         }
         return lista;
     }

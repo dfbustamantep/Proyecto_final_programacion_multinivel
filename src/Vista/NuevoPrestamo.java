@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import DAO.Imp.DAOPrestamosImpl;
+import DAO.Interfaces.DAOPrestamos;
 import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -180,7 +182,8 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
-        System.exit(1);
+        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        System.exit(0);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
 
     private void jTextFieldUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioMousePressed
@@ -194,15 +197,30 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
-            if((jTextFieldISBN.getText()!="") && (jTextFieldUsuario.getText()!="") && (jTextFieldEstadoPrestamo.getText()!="")){
+        int ISBNLibro=Integer.parseInt(jTextFieldISBN.getText());
+        long documentoUsuario=Long.parseLong(jTextFieldUsuario.getText());
+        String Estado=jTextFieldEstadoPrestamo.getText();
+        
             generarReporte(); 
             this.setVisible(false);
             Prestamos prestamos=new Prestamos();
             prestamos.setVisible(true);
+            
+            Modelo.Prestamos prestamo=new Modelo.Prestamos();
+            prestamo.setISBNLibro(ISBNLibro);
+            prestamo.setDocumentoUsuario(documentoUsuario);
+            prestamo.setEstado(Estado);
+            
+            try{
+                DAOPrestamos dao=new DAOPrestamosImpl();
+                dao.Registrar(prestamo);
+                JOptionPane.showMessageDialog(null, "Registro exitoso");
             }
-            else{
-                JOptionPane.showMessageDialog(null, "Por favor llene todos los campos");
+            catch(Exception e){
+                System.out.println(e.getMessage());
             }
+            
+            
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
