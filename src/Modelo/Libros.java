@@ -18,6 +18,8 @@ public class Libros {
     private int nEjemplaresDisponibles;
     private String Resumen;
 
+    
+    
     public String getNombre() {
         return nombre;
     }

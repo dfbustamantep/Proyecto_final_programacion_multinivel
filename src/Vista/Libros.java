@@ -4,11 +4,14 @@
  */
 package Vista;
 
+import DAO.Imp.DAOLibrosImpl;
+import DAO.Interfaces.DAOLibros;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -38,6 +41,7 @@ public class Libros extends javax.swing.JFrame {
         this.modelo.addColumn("# ejemplares");
         this.modelo.addColumn("# ejemplares disponibles");
         this.modelo.addColumn("Resumen");
+         cargarDatos();  
     }
     
    
@@ -260,10 +264,7 @@ public class Libros extends javax.swing.JFrame {
         jTableLibros.setForeground(new java.awt.Color(255, 255, 255));
         jTableLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nombre", "Autor", "# ejemplares", "# ejemplares disponibles", "Resumen"
@@ -354,7 +355,18 @@ public class Libros extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarLibroActionPerformed
-        //this.setVisible(false);
+        DAOLibros libros=new DAOLibrosImpl();
+        for(int i:jTableLibros.getSelectedRows()){
+            try{
+                 //conseguimos el id del linro que se esta seleccionando en la tabla
+                libros.Eliminar((int)jTableLibros.getValueAt(i, 0));
+                modelo.removeRow(i);
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
+        //cargarDatos();  
     }//GEN-LAST:event_jButtonBorrarLibroActionPerformed
 
     private void jButtonNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoLibroActionPerformed
@@ -423,4 +435,15 @@ public class Libros extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableLibros;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatos() {
+        try{
+            DAOLibros libros=new DAOLibrosImpl();
+            List<Modelo.Libros>lista=libros.Lista();
+            libros.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getISBN(),u.getNombre(),u.getAutor(),u.getFechaPublicacion(),u.getnEjemplares(),u.getnEjemplaresDisponibles(),u.getResumen()}));
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

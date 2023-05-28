@@ -262,7 +262,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null,"Por favor llene todos los campos");
             }
-                       
+           
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed

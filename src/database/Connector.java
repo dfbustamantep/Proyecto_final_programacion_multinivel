@@ -12,14 +12,14 @@ package database;
 import java.sql.*;
 
 public class Connector {
-    private String nombreDatabase="";
+    private String nombreDatabase="biblioteca";
     private Connection connection=null;
 
     public Connector() {
          try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "",
+                    "jdbc:mysql://127.0.0.1:33064/biblioteca",
                     "root", "");
         }
         catch(Exception exception){
