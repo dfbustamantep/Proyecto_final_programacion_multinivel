@@ -18,4 +18,5 @@ public interface DAOLibros {
     public void Modificar(Libros libro)throws Exception;
     public void Eliminar(int libro)throws Exception;
     public List<Libros> Lista()throws Exception;
+    public Libros getLibrobyISBN(int libroISBN)throws Exception;
 }

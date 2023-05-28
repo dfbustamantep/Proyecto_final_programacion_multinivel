@@ -7,21 +7,18 @@ package Vista;
 import DAO.Imp.DAOLibrosImpl;
 import DAO.Interfaces.DAOLibros;
 import java.awt.Color;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author DBUSTAMANTEP
  */
-public class NuevoLibro extends javax.swing.JFrame {
+public class EditarLibro extends javax.swing.JFrame {
 
     /**
-     * Creates new form NuevoLibro
+     * Creates new form EditarLibro
      */
-    public NuevoLibro() {
+    public EditarLibro() {
         initComponents();
     }
 
@@ -59,16 +56,13 @@ public class NuevoLibro extends javax.swing.JFrame {
         LblfechaP = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationByPlatform(true);
-        setUndecorated(true);
-        setResizable(false);
 
         jPanelFondo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
-        Titulo.setText("Creación de libro");
+        Titulo.setText("Modificación del libro");
         jPanelFondo.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 470, 110));
 
         JLabelSalida.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
@@ -129,7 +123,7 @@ public class NuevoLibro extends javax.swing.JFrame {
         jButtonGuaradr.setBackground(new java.awt.Color(255, 255, 255));
         jButtonGuaradr.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonGuaradr.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonGuaradr.setText("Guardar nuevo libro");
+        jButtonGuaradr.setText("Guardar cambios del  libro");
         jButtonGuaradr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonGuaradr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,11 +251,11 @@ public class NuevoLibro extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -289,36 +283,32 @@ public class NuevoLibro extends javax.swing.JFrame {
         int nEjemplares=Integer.parseInt(jTextFieldNEjemplares.getText());
         String resumen=jTextFieldResumen.getText();
         
-        //if(nombre.equals("")||ISBN.equals("")||autor.equals("")||nEjemplares.equals()||){
-                generarReporte();
-                this.setVisible(false);
-                Libros libros=new Libros();
-                libros.setVisible(true);
-          /*  }else{
-                JOptionPane.showMessageDialog(null,"Por favor llene todos los campos");
-            }*/
-            Modelo.Libros libro=new Modelo.Libros();
-            libro.setISBN(Integer.parseInt(ISBN));
-            libro.setNombre(nombre);
-            libro.setAutor(autor);
-            libro.setFechaPublicacion(fechaP);
-            libro.setnEjemplares(nEjemplares);
-            libro.setnEjemplaresDisponibles(nEjemplares);
-            libro.setResumen(resumen);
-            try{
-                DAOLibros librosd= new DAOLibrosImpl();
-                librosd.Registrar(libro);
-                JOptionPane.showMessageDialog(null, "Registro exitoso");
-                /*jTextFieldNombre.setText("");
-                jTextFieldISBN.setText("");
-                jTextFieldAutor.setText("");
-                jTextFieldFechaP.setText("");
-                jTextFieldNEjemplares.setText("");
-                jTextFieldResumen.setText("");*/
-            }
-            catch(Exception e){
-                System.out.println(e.getMessage());
-            }
+        this.setVisible(false);
+        Libros libros=new Libros();
+        libros.setVisible(true);
+        
+        Modelo.Libros libro=new Modelo.Libros();
+        libro.setISBN(Integer.parseInt(ISBN));
+        libro.setNombre(nombre);
+        libro.setAutor(autor);
+        libro.setFechaPublicacion(fechaP);
+        libro.setnEjemplares(nEjemplares);
+        libro.setnEjemplaresDisponibles(nEjemplares);
+        libro.setResumen(resumen);
+        try{
+            DAOLibros librosd= new DAOLibrosImpl();
+            librosd.Registrar(libro);
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+            /*jTextFieldNombre.setText("");
+            jTextFieldISBN.setText("");
+            jTextFieldAutor.setText("");
+            jTextFieldFechaP.setText("");
+            jTextFieldNEjemplares.setText("");
+            jTextFieldResumen.setText("");*/
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
@@ -326,7 +316,7 @@ public class NuevoLibro extends javax.swing.JFrame {
         jTextFieldISBN.setForeground(Color.BLACK);
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldISBNMousePressed
- 
+
     private void jTextFieldISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldISBNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldISBNActionPerformed
@@ -369,19 +359,6 @@ public class NuevoLibro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFechaPActionPerformed
 
-     private void generarReporte() {
-         try{
-            BufferedWriter outStream = new BufferedWriter(new FileWriter("ReporteNuevosLibros.csv", true));
-            
-            outStream.write(jTextFieldNombre.getText()+","+jTextFieldISBN.getText()+","+jTextFieldAutor.getText()+","+jTextFieldNEjemplares.getText()+","+jTextFieldResumen.getText()+"\n");
-            outStream.close();
-            JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente el registro");
-            // System.out.println("Registro guardado de manera exitosa");
-            
-        }catch(IOException exception){
-            JOptionPane.showMessageDialog(null, "Se ha producido un error intente nuevamente");
-        }
-    }
     /**
      * @param args the command line arguments
      */
@@ -399,23 +376,20 @@ public class NuevoLibro extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NuevoLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NuevoLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NuevoLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NuevoLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditarLibro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NuevoLibro().setVisible(true);
+                new EditarLibro().setVisible(true);
             }
         });
     }

@@ -114,5 +114,34 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
         }
         return lista;
     }
-       
+    
+    @Override
+    public Libros getLibrobyISBN(int libroISBN)throws Exception{
+        Libros libro=new Libros();
+        String sql="SELECT *FROM libros WHERE ISBN=?;";
+        
+        try{
+            PreparedStatement st= connector.getConnection().prepareStatement(sql);
+            st.setInt(1,libroISBN);
+           
+            ResultSet rs=st.executeQuery();
+            while(rs.next()){
+                libro.setISBN(rs.getInt("ISBN"));
+                libro.setNombre(rs.getString("nombre"));
+                libro.setAutor(rs.getString("autor"));
+                libro.setFechaPublicacion(rs.getString("fechaPublicacion"));
+                libro.setnEjemplares(rs.getInt("nEjemplares"));
+                libro.setnEjemplaresDisponibles(rs.getInt("nEjemplaresDisponibles"));
+                libro.setResumen(rs.getString("resumen"));
+                
+            }
+            rs.close();
+            st.close();
+        }
+        catch(Exception e){
+        
+        }
+        return libro;
+        //return;
+    }   
 }

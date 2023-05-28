@@ -13,6 +13,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -70,9 +72,9 @@ public class Libros extends javax.swing.JFrame {
         jLabelExit = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableLibros = new javax.swing.JTable();
-        jButtonNuevoLibro = new javax.swing.JButton();
         jButtonBorrarLibro = new javax.swing.JButton();
-        jButtonEditrarLibro = new javax.swing.JButton();
+        jButtonNuevolibro = new javax.swing.JButton();
+        jButtonEditarLibro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -275,17 +277,6 @@ public class Libros extends javax.swing.JFrame {
 
         BackGround.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 860, -1));
 
-        jButtonNuevoLibro.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonNuevoLibro.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jButtonNuevoLibro.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonNuevoLibro.setText("Nuevo Libro");
-        jButtonNuevoLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonNuevoLibroActionPerformed(evt);
-            }
-        });
-        BackGround.add(jButtonNuevoLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 670, 150, 40));
-
         jButtonBorrarLibro.setBackground(new java.awt.Color(255, 255, 255));
         jButtonBorrarLibro.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jButtonBorrarLibro.setForeground(new java.awt.Color(0, 0, 0));
@@ -297,11 +288,27 @@ public class Libros extends javax.swing.JFrame {
         });
         BackGround.add(jButtonBorrarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 670, 150, 40));
 
-        jButtonEditrarLibro.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonEditrarLibro.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jButtonEditrarLibro.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonEditrarLibro.setText("Editar Libro");
-        BackGround.add(jButtonEditrarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 670, 150, 40));
+        jButtonNuevolibro.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonNuevolibro.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jButtonNuevolibro.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonNuevolibro.setText("Crear Libro");
+        jButtonNuevolibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevolibroActionPerformed(evt);
+            }
+        });
+        BackGround.add(jButtonNuevolibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 670, 150, 40));
+
+        jButtonEditarLibro.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonEditarLibro.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jButtonEditarLibro.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonEditarLibro.setText("Editar Libro");
+        jButtonEditarLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarLibroActionPerformed(evt);
+            }
+        });
+        BackGround.add(jButtonEditarLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 670, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -369,12 +376,16 @@ public class Libros extends javax.swing.JFrame {
         //cargarDatos();  
     }//GEN-LAST:event_jButtonBorrarLibroActionPerformed
 
-    private void jButtonNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoLibroActionPerformed
-        this.setVisible(false);
-        
-        NuevoLibro nuevoLibro= new NuevoLibro();
-        nuevoLibro.setVisible(true);
-    }//GEN-LAST:event_jButtonNuevoLibroActionPerformed
+    private void jButtonNuevolibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevolibroActionPerformed
+       this.setVisible(false);
+       
+       Vista.NuevoLibro nuevo=new NuevoLibro();
+       nuevo.setVisible(true);
+    }//GEN-LAST:event_jButtonNuevolibroActionPerformed
+
+    private void jButtonEditarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarLibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditarLibroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,10 +430,10 @@ public class Libros extends javax.swing.JFrame {
     private javax.swing.JPanel BarraFechaHora;
     private javax.swing.JPanel BarraLateral;
     private javax.swing.JButton jButtonBorrarLibro;
-    private javax.swing.JButton jButtonEditrarLibro;
+    private javax.swing.JButton jButtonEditarLibro;
     private javax.swing.JButton jButtonHome;
     private javax.swing.JButton jButtonLibros;
-    private javax.swing.JButton jButtonNuevoLibro;
+    private javax.swing.JButton jButtonNuevolibro;
     private javax.swing.JButton jButtonPrestamos;
     private javax.swing.JButton jButtonUsuarios;
     private javax.swing.JLabel jLabelExit;
