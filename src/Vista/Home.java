@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import database.Connector;
@@ -19,10 +16,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
+/*
  * @author DBUSTAMANTEP
  */
+
 public class Home extends javax.swing.JFrame {
 
     /**
@@ -38,13 +35,7 @@ public class Home extends javax.swing.JFrame {
         LocalDate now=LocalDate.now();
         Locale spanishLocale=new Locale("es","ES");
         jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY",spanishLocale)));
-        /*int year=now.getYear();
-        int month=now.getMonthValue();
-        int day=now.getDayOfMonth();
-        String months[]= {"Enero","Febrero","Marzo","Abirl","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"};;*/
-        //jLabelTituloFecha.setText(day+" de "+months[month-1]+" de "+year);
-                //Date date = Date.from(Instant.now());
-        //jLabelTituloFecha.setText(String.valueOf(date));
+        
          url="";
     }
     

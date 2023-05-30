@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package DAO.Imp;
 
 import DAO.Interfaces.DAOLibros;
@@ -12,16 +9,18 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- *
  * @author DBUSTAMANTEP
  */
-public class DAOLibrosImpl extends Connector implements DAOLibros {
 
-    Connector connector = null;
+public class DAOLibrosImpl implements DAOLibros {
+
+    private Connector connector;
 
     public DAOLibrosImpl() {
-        this.connector = new Connector();//Connector.getConnection();
+        this.connector = Connector.getInstance();
+        /*Connector.getConnection();*//*new Connector();*///Connector.getConnection();
     }
+
     //crear un libro
     @Override
     public void Registrar(Libros libro) throws Exception {
@@ -30,6 +29,7 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
         try {
             PreparedStatement st;
             st = connector.getConnection().prepareStatement(sql);
+            //st=Connector.getConnection().prepareStatement(sql);
             st.setInt(1, libro.getISBN());
             st.setString(2, libro.getNombre());
             st.setString(3, libro.getAutor());
@@ -45,6 +45,7 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
             System.out.println("Error registro " + e);
         }
     }
+
     //modificar un libro ya existente
     @Override
     public void Modificar(Libros libro) throws Exception {
@@ -68,7 +69,7 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
             System.out.println("Error registro " + e);
         }
     }
-    
+
     //eliminar un libro por medio de su ISBN
     @Override
     public void Eliminar(int ISBN) throws Exception {
@@ -143,6 +144,5 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
 
         }
         return libro;
-        //return;
     }
 }

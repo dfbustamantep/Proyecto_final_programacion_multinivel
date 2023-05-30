@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOLibrosImpl;
@@ -12,8 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
-/**
- *
+/*
  * @author DBUSTAMANTEP
  */
 public class NuevoLibro extends javax.swing.JFrame {
@@ -268,7 +264,7 @@ public class NuevoLibro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
-       JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
 
@@ -283,43 +279,37 @@ public class NuevoLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldAutorActionPerformed
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
-        String nombre=jTextFieldNombre.getText();
-        String ISBN=jTextFieldISBN.getText();
-        String autor=jTextFieldAutor.getText();
-        String fechaP=jTextFieldFechaP.getText();
-        int nEjemplares=Integer.parseInt(jTextFieldNEjemplares.getText());
-        String resumen=jTextFieldResumen.getText();
-        
+        String nombre = jTextFieldNombre.getText();
+        String ISBN = jTextFieldISBN.getText();
+        String autor = jTextFieldAutor.getText();
+        String fechaP = jTextFieldFechaP.getText();
+        int nEjemplares = Integer.parseInt(jTextFieldNEjemplares.getText());
+        String resumen = jTextFieldResumen.getText();
+
         //if(nombre.equals("")||ISBN.equals("")||autor.equals("")||nEjemplares.equals()||){
-                generarReporte();
-                this.setVisible(false);
-                Libros libros=new Libros();
-                libros.setVisible(true);
-          /*  }else{
+        generarReporte();
+        this.setVisible(false);
+        Libros libros = new Libros();
+        libros.setVisible(true);
+        /*  }else{
                 JOptionPane.showMessageDialog(null,"Por favor llene todos los campos");
             }*/
-            Modelo.Libros libro=new Modelo.Libros();
-            libro.setISBN(Integer.parseInt(ISBN));
-            libro.setNombre(nombre);
-            libro.setAutor(autor);
-            libro.setFechaPublicacion(fechaP);
-            libro.setnEjemplares(nEjemplares);
-            libro.setnEjemplaresDisponibles(nEjemplares);
-            libro.setResumen(resumen);
-            try{
-                DAOLibros librosd= new DAOLibrosImpl();
-                librosd.Registrar(libro);
-                JOptionPane.showMessageDialog(null, "Registro exitoso");
-                /*jTextFieldNombre.setText("");
-                jTextFieldISBN.setText("");
-                jTextFieldAutor.setText("");
-                jTextFieldFechaP.setText("");
-                jTextFieldNEjemplares.setText("");
-                jTextFieldResumen.setText("");*/
-            }
-            catch(Exception e){
-                System.out.println(e.getMessage());
-            }
+        Modelo.Libros libro = new Modelo.Libros();
+        libro.setISBN(Integer.parseInt(ISBN));
+        libro.setNombre(nombre);
+        libro.setAutor(autor);
+        libro.setFechaPublicacion(fechaP);
+        libro.setnEjemplares(nEjemplares);
+        libro.setnEjemplaresDisponibles(nEjemplares);
+        libro.setResumen(resumen);
+        try {
+            DAOLibros librosd = new DAOLibrosImpl();
+            librosd.Registrar(libro);
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
@@ -327,7 +317,7 @@ public class NuevoLibro extends javax.swing.JFrame {
         jTextFieldISBN.setForeground(Color.BLACK);
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldISBNMousePressed
- 
+
     private void jTextFieldISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldISBNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldISBNActionPerformed
@@ -370,19 +360,20 @@ public class NuevoLibro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFechaPActionPerformed
 
-     private void generarReporte() {
-         try{
+    private void generarReporte() {
+        try {
             BufferedWriter outStream = new BufferedWriter(new FileWriter("ReporteNuevosLibros.csv", true));
-            
-            outStream.write(jTextFieldNombre.getText()+","+jTextFieldISBN.getText()+","+jTextFieldAutor.getText()+","+jTextFieldNEjemplares.getText()+","+jTextFieldResumen.getText()+"\n");
+
+            outStream.write(jTextFieldNombre.getText() + "," + jTextFieldISBN.getText() + "," + jTextFieldAutor.getText() + "," + jTextFieldNEjemplares.getText() + "," + jTextFieldResumen.getText() + "\n");
             outStream.close();
             JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente el registro");
             // System.out.println("Registro guardado de manera exitosa");
-            
-        }catch(IOException exception){
+
+        } catch (IOException exception) {
             JOptionPane.showMessageDialog(null, "Se ha producido un error intente nuevamente");
         }
     }
+
     /**
      * @param args the command line arguments
      */

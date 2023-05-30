@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOUsuariosImpl;
@@ -10,9 +7,9 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author DBUSTAMANTEP
  */
+
 public class EditarUsuario extends javax.swing.JFrame {
 
     Modelo.Usuarios usuarioM;
@@ -25,16 +22,6 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         this.usuarioM = usuario;
 
-        /*//jTextFieldDocumento.setText("" + usuarioM.getDocumento());
-        jTextFieldDocumento.setText(""+usuarioM.getDocumento());
-        //jTextFieldNombre.setText(usuarioM.getNombre());
-        jTextFieldNombre.setText(usuarioM.getNombre());
-        //jTextFieldApellidoUsuario.setText(usuarioM.getApellido());
-        jTextFieldApellidoUsuario.setText(usuarioM.getApellido());
-        //jTextFieldCorreo.setText(usuarioM.getCorreo());
-        jTextFieldCorreo.setText(usuarioM.getCorreo());
-        //jTextFieldNContacto.setText("" + usuarioM.getnContacto());
-        jTextFieldNContacto.setText(""+usuarioM.getnContacto());*/
         jTextFieldDocumento.setText(String.valueOf(usuarioM.getDocumento()));
         jTextFieldNombre.setText(usuarioM.getNombre());
         jTextFieldApellidoUsuario.setText(usuarioM.getApellido());

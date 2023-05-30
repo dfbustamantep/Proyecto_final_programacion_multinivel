@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOLibrosImpl;
@@ -26,15 +23,14 @@ public class Libros extends javax.swing.JFrame {
 
     //jtable
     DefaultTableModel modelo = new DefaultTableModel();
-    
+
     public Libros() {
         initComponents();
-        
-        
-        LocalDate now=LocalDate.now();
-        Locale spanishLocale=new Locale("es","ES");
-        jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY",spanishLocale)));
-        
+
+        LocalDate now = LocalDate.now();
+        Locale spanishLocale = new Locale("es", "ES");
+        jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY", spanishLocale)));
+
         //jtable
         this.jTableLibros.setModel(modelo);
         this.modelo.addColumn("ISBN");
@@ -44,11 +40,10 @@ public class Libros extends javax.swing.JFrame {
         this.modelo.addColumn("# ejemplares");
         this.modelo.addColumn("# ejemplares disponibles");
         this.modelo.addColumn("Resumen");
-        
-        cargarDatos();   
+
+        cargarDatos();
     }
-    
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -329,83 +324,81 @@ public class Libros extends javax.swing.JFrame {
     private void jButtonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariosActionPerformed
         JOptionPane.showMessageDialog(null, "Usuarios");
         this.setVisible(false);
-        
-        Usuarios usuarios=new Usuarios();
+
+        Usuarios usuarios = new Usuarios();
         usuarios.setVisible(true);
     }//GEN-LAST:event_jButtonUsuariosActionPerformed
 
     private void jButtonLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLibrosActionPerformed
         JOptionPane.showMessageDialog(null, "Libros");
         this.setVisible(false);
-        
-        Libros libros=new Libros();
+
+        Libros libros = new Libros();
         libros.setVisible(true);
     }//GEN-LAST:event_jButtonLibrosActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         JOptionPane.showMessageDialog(null, "Home");
         this.setVisible(false);
-        
-        Home home=new Home();
+
+        Home home = new Home();
         home.setVisible(true);
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jButtonPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrestamosActionPerformed
         JOptionPane.showMessageDialog(null, "Prestamos");
         this.setVisible(false);
-        
-        Prestamos prestamos=new Prestamos();
+
+        Prestamos prestamos = new Prestamos();
         prestamos.setVisible(true);
     }//GEN-LAST:event_jButtonPrestamosActionPerformed
 
     private void jLabelExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelExitMousePressed
-        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarLibroActionPerformed
-        DAOLibros libros=new DAOLibrosImpl();
-         if(jTableLibros.getSelectedRow()>-1){
-                //for(int i:jTableLibros.getSelectedRow()){
-                  try{
-                       //conseguimos el id del linro que se esta seleccionando en la tabla
-                      libros.Eliminar((int)jTableLibros.getValueAt(jTableLibros.getSelectedRow(), 0));
-                      modelo.removeRow(jTableLibros.getSelectedRow());
-                  }
-                  catch(Exception e){
-                      System.out.println(e.getMessage());
-                  }
-             // }
-         }else{
-             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
-         }
-       
+        DAOLibros libros = new DAOLibrosImpl();
+        if (jTableLibros.getSelectedRow() > -1) {
+            //for(int i:jTableLibros.getSelectedRow()){
+            try {
+                //conseguimos el id del linro que se esta seleccionando en la tabla
+                libros.Eliminar((int) jTableLibros.getValueAt(jTableLibros.getSelectedRow(), 0));
+                modelo.removeRow(jTableLibros.getSelectedRow());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            // }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
+        }
+
         //cargarDatos();  
     }//GEN-LAST:event_jButtonBorrarLibroActionPerformed
 
     private void jButtonNuevolibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevolibroActionPerformed
-       this.setVisible(false);  
-       
-       Vista.NuevoLibro nuevo=new NuevoLibro();
-       nuevo.setVisible(true);
+        this.setVisible(false);
+
+        Vista.NuevoLibro nuevo = new NuevoLibro();
+        nuevo.setVisible(true);
     }//GEN-LAST:event_jButtonNuevolibroActionPerformed
 
     private void jButtonEditarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarLibroActionPerformed
-        if(jTableLibros.getSelectedRow()>-1){
-            int ISBN=(int)jTableLibros.getValueAt(jTableLibros.getSelectedRow(), 0);
-            DAOLibros dao=new DAOLibrosImpl();
+        if (jTableLibros.getSelectedRow() > -1) {
+            int ISBN = (int) jTableLibros.getValueAt(jTableLibros.getSelectedRow(), 0);
+            DAOLibros dao = new DAOLibrosImpl();
             try {
                 this.setVisible(false);
-                EditarLibro editar=new EditarLibro(dao.getLibrobyISBN(ISBN));
+                EditarLibro editar = new EditarLibro(dao.getLibrobyISBN(ISBN));
                 editar.setVisible(true);
             } catch (Exception ex) {
-                System.out.println("Error al intentar editar "+ex);
+                System.out.println("Error al intentar editar " + ex);
             }
-            
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
         }
-        else{
-             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
-         }
     }//GEN-LAST:event_jButtonEditarLibroActionPerformed
 
     /**
@@ -469,12 +462,11 @@ public class Libros extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargarDatos() {
-        try{
-            DAOLibros libros=new DAOLibrosImpl();
-            List<Modelo.Libros>lista=libros.Lista();
-            libros.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getISBN(),u.getNombre(),u.getAutor(),u.getFechaPublicacion(),u.getnEjemplares(),u.getnEjemplaresDisponibles(),u.getResumen()}));
-        }
-        catch(Exception e){
+        try {
+            DAOLibros libros = new DAOLibrosImpl();
+            List<Modelo.Libros> lista = libros.Lista();
+            libros.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getISBN(), u.getNombre(), u.getAutor(), u.getFechaPublicacion(), u.getnEjemplares(), u.getnEjemplaresDisponibles(), u.getResumen()}));
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

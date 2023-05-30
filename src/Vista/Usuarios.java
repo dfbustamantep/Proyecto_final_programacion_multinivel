@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOUsuariosImpl;
@@ -16,21 +13,21 @@ import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
+/*
  * @author DBUSTAMANTEP
  */
+
 public class Usuarios extends javax.swing.JFrame {
 
     //jtable
     DefaultTableModel modelo = new DefaultTableModel();
-    
+
     public Usuarios() {
         initComponents();
-        
-        LocalDate now=LocalDate.now();
-        Locale spanishLocale=new Locale("es","ES");
-        jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY",spanishLocale)));
+
+        LocalDate now = LocalDate.now();
+        Locale spanishLocale = new Locale("es", "ES");
+        jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY", spanishLocale)));
         //jtable
         this.jTableUsuarios.setModel(modelo);
         this.modelo.addColumn("Documento");
@@ -38,11 +35,10 @@ public class Usuarios extends javax.swing.JFrame {
         this.modelo.addColumn("Apellido");
         this.modelo.addColumn("Correo");
         this.modelo.addColumn("Numero de contacto");
-        
-        cargarDatos(); 
+
+        cargarDatos();
     }
-    
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -324,83 +320,81 @@ public class Usuarios extends javax.swing.JFrame {
     private void jButtonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariosActionPerformed
         JOptionPane.showMessageDialog(null, "Usuarios");
         this.setVisible(false);
-        
-        Usuarios usuarios=new Usuarios();
+
+        Usuarios usuarios = new Usuarios();
         usuarios.setVisible(true);
     }//GEN-LAST:event_jButtonUsuariosActionPerformed
 
     private void jButtonLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLibrosActionPerformed
         JOptionPane.showMessageDialog(null, "Libros");
         this.setVisible(false);
-        
-        Libros libros=new Libros();
+
+        Libros libros = new Libros();
         libros.setVisible(true);
     }//GEN-LAST:event_jButtonLibrosActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         JOptionPane.showMessageDialog(null, "Home");
         this.setVisible(false);
-        
-        Home home=new Home();
+
+        Home home = new Home();
         home.setVisible(true);
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jButtonPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrestamosActionPerformed
         JOptionPane.showMessageDialog(null, "Prestamos");
         this.setVisible(false);
-        
-        Prestamos prestamos=new Prestamos();
+
+        Prestamos prestamos = new Prestamos();
         prestamos.setVisible(true);
     }//GEN-LAST:event_jButtonPrestamosActionPerformed
 
     private void jLabelExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelExitMousePressed
-        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarUsuarioActionPerformed
-         DAOUsuarios usuario=new DAOUsuariosImpl();
-         if(jTableUsuarios.getSelectedRow()>-1){
-                //for(int i:jTableLibros.getSelectedRow()){
-                  try{
-                       //conseguimos el id del linro que se esta seleccionando en la tabla
-                      usuario.Eliminar((long) jTableUsuarios.getValueAt(jTableUsuarios.getSelectedRow(), 0));
-                      modelo.removeRow(jTableUsuarios.getSelectedRow());
-                  }
-                  catch(Exception e){
-                      System.out.println("Error en eliminacion"+e.getMessage());
-                  }
-             // }
-         }else{
-             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
-         }
+        DAOUsuarios usuario = new DAOUsuariosImpl();
+        if (jTableUsuarios.getSelectedRow() > -1) {
+            //for(int i:jTableLibros.getSelectedRow()){
+            try {
+                //conseguimos el id del linro que se esta seleccionando en la tabla
+                usuario.Eliminar((long) jTableUsuarios.getValueAt(jTableUsuarios.getSelectedRow(), 0));
+                modelo.removeRow(jTableUsuarios.getSelectedRow());
+            } catch (Exception e) {
+                System.out.println("Error en eliminacion" + e.getMessage());
+            }
+            // }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
+        }
     }//GEN-LAST:event_jButtonBorrarUsuarioActionPerformed
 
     private void jButtonNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoUsuarioActionPerformed
         this.setVisible(false);
-        
-        NuevoUsuario nuevoUsuario= new NuevoUsuario();
+
+        NuevoUsuario nuevoUsuario = new NuevoUsuario();
         nuevoUsuario.setVisible(true);
     }//GEN-LAST:event_jButtonNuevoUsuarioActionPerformed
 
     private void jButtonEditrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditrarUsuarioActionPerformed
-       // System.out.println(jTableUsuarios.getSelectedRow());
-       if(jTableUsuarios.getSelectedRow()>-1){
-            Long documento=(Long) jTableUsuarios.getValueAt(jTableUsuarios.getSelectedRow(), 0);
-            DAOUsuarios dao=new DAOUsuariosImpl();
-            
+        // System.out.println(jTableUsuarios.getSelectedRow());
+        if (jTableUsuarios.getSelectedRow() > -1) {
+            Long documento = (Long) jTableUsuarios.getValueAt(jTableUsuarios.getSelectedRow(), 0);
+            DAOUsuarios dao = new DAOUsuariosImpl();
+
             try {
                 this.setVisible(false);
                 EditarUsuario editar = new EditarUsuario(dao.getUsuariobyDocument(documento));
                 editar.setVisible(true);
             } catch (Exception ex) {
-                System.out.println("Error al intentar editar "+ex);
+                System.out.println("Error al intentar editar " + ex);
             }
-            
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
         }
-        else{
-             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
-         }
     }//GEN-LAST:event_jButtonEditrarUsuarioActionPerformed
 
     /**
@@ -467,13 +461,12 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JTable jTableUsuarios;
     // End of variables declaration//GEN-END:variables
 
-         private void cargarDatos() {
-        try{
-            DAOUsuarios usuarios=new DAOUsuariosImpl();
-            List<Modelo.Usuarios>lista=usuarios.Lista();
-            usuarios.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getDocumento(),u.getNombre(),u.getApellido(),u.getCorreo(),u.getnContacto()}));
-        }
-        catch(Exception e){
+    private void cargarDatos() {
+        try {
+            DAOUsuarios usuarios = new DAOUsuariosImpl();
+            List<Modelo.Usuarios> lista = usuarios.Lista();
+            usuarios.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getDocumento(), u.getNombre(), u.getApellido(), u.getCorreo(), u.getnContacto()}));
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

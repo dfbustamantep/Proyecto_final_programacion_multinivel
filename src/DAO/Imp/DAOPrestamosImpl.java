@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DAO.Imp;
 
 import DAO.Interfaces.DAOPrestamos;
@@ -14,17 +10,16 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 /**
- *
  * @author DBUSTAMANTEP
  */
-
 //en esta clase creamos todos los metodos que escribimos en el DAO
-public class DAOPrestamosImpl extends Connector implements DAOPrestamos {
+public class DAOPrestamosImpl implements DAOPrestamos {
 
-     Connector connector ;
+    private Connector connector;
 
     public DAOPrestamosImpl() {
-        this.connector = new Connector();
+        //obtenemops la instancia del conectpr
+        this.connector = Connector.getInstance();
     }
 
     //crear un nuevo prestamo
@@ -46,7 +41,7 @@ public class DAOPrestamosImpl extends Connector implements DAOPrestamos {
             System.out.println("Error registro" + e);
         };
     }
-    
+
     //modificar un usuario ya creado
     @Override
     public void Modificar(Prestamos prestamo) throws Exception {
@@ -55,24 +50,29 @@ public class DAOPrestamosImpl extends Connector implements DAOPrestamos {
         try {
             PreparedStatement st;
             st = connector.getConnection().prepareStatement(sql);
+
             st.setInt(1, prestamo.getISBNLibro());
-            System.out.println(prestamo.getISBNLibro());
+            //System.out.println(prestamo.getISBNLibro());
+
             st.setLong(2, prestamo.getDocumentoUsuario());
-            System.out.println(prestamo.getDocumentoUsuario());
+            //System.out.println(prestamo.getDocumentoUsuario());
+
             st.setString(3, prestamo.getEstado());
-            System.out.println(prestamo.getEstado());
-            
+            //System.out.println(prestamo.getEstado());
+
             st.setInt(4, prestamo.getID());
-            System.out.println("id prestamo "+prestamo.getID());
+            System.out.println("id prestamo " + prestamo.getID());
             st.executeUpdate();
             st.close();
+
             connector.getConnection().close();
             System.out.println("modifiacion exitosa");
+
         } catch (Exception e) {
             System.out.println("Erorr al modificar" + e);
         }
     }
-    
+
     //eliminar un usuario ya creado or medio del id
     @Override
     public void Eliminar(int id) throws Exception {
@@ -90,7 +90,7 @@ public class DAOPrestamosImpl extends Connector implements DAOPrestamos {
             System.out.println("Error eliminacion " + e);
         }
     }
-    
+
     //hacemos una lista con todos los datos que estan en la tabla
     @Override
     public List<Prestamos> Lista() throws Exception {
@@ -116,7 +116,7 @@ public class DAOPrestamosImpl extends Connector implements DAOPrestamos {
         return lista;
 
     }
-    
+
     //buscamos un prestamo especifico por ID
     @Override
     public Prestamos getPrestamosbyID(int id) throws Exception {
@@ -145,7 +145,7 @@ public class DAOPrestamosImpl extends Connector implements DAOPrestamos {
             rs.close();
             st.close();
         } catch (Exception e) {
-            System.out.println("Error getId "+e);
+            System.out.println("Error getId " + e);
         }
         return prestamo;
         //return;

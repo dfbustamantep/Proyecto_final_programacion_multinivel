@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package DAO.Imp;
 
 import DAO.Interfaces.DAOUsuarios;
@@ -13,17 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author DBUSTAMANTEP
  */
-public class DAOUsuariosImpl extends Connector implements DAOUsuarios {
+
+public class DAOUsuariosImpl /*extends Connector*/ implements DAOUsuarios {
 
     private Connector connector;
 
     public DAOUsuariosImpl() {
-        this.connector = new Connector()/*Connector.getConnection()*/;
+        this.connector = Connector.getInstance();/*new Connector()*//*Connector.getConnection()*/;
     }
-    
+
     //creamos un registro de usuario
     @Override
     public void Registrar(Usuarios usuario) throws Exception {
@@ -47,8 +44,7 @@ public class DAOUsuariosImpl extends Connector implements DAOUsuarios {
         }
     }
 
-    
-     //modificamos un usario ya existente
+    //modificamos un usario ya existente
     @Override
     public void Modificar(Usuarios usuario) throws Exception {
         String sql = "UPDATE usuarios SET documento=?,nombre=?,apellido=?,correo=?,nContacto=? WHERE documento=? ";
@@ -72,7 +68,6 @@ public class DAOUsuariosImpl extends Connector implements DAOUsuarios {
         }
     }
 
-        
 //elimanmos un usario por medio de su documento
     @Override
     public void Eliminar(long documento) throws Exception {
@@ -91,7 +86,7 @@ public class DAOUsuariosImpl extends Connector implements DAOUsuarios {
         }
     }
 
-     //creamos un alista de usarios
+    //creamos un alista de usarios
     @Override
     public List<Usuarios> Lista() throws Exception {
         List<Usuarios> lista = null;
@@ -121,7 +116,6 @@ public class DAOUsuariosImpl extends Connector implements DAOUsuarios {
         return lista;
     }
 
-    
     //buscamos un usuario por medio de su id
     @Override
     public Usuarios getUsuariobyDocument(long documento) throws Exception {

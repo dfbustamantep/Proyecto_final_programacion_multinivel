@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOPrestamosImpl;
@@ -9,10 +6,10 @@ import DAO.Interfaces.DAOPrestamos;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
-/**
- *
+/*
  * @author DBUSTAMANTEP
  */
+
 public class EditarPrestamo extends javax.swing.JFrame {
 
     Modelo.Prestamos prestamoM;
@@ -24,8 +21,8 @@ public class EditarPrestamo extends javax.swing.JFrame {
         initComponents();
 
         this.prestamoM = prestamo;
-        
-        System.out.println("ID prestamo en editar "+prestamoM.getID()       );
+
+        System.out.println("ID prestamo en editar " + prestamoM.getID());
         jTextFieldISBN.setText("" + prestamoM.getISBNLibro());
         jTextFieldUsuario.setText("" + prestamoM.getDocumentoUsuario());
         jTextFieldEstadoPrestamo.setText(prestamoM.getEstado());
@@ -212,7 +209,7 @@ public class EditarPrestamo extends javax.swing.JFrame {
         this.setVisible(false);
         Prestamos prestamos = new Prestamos();
         prestamos.setVisible(true);
-        
+
         //Modelo.Prestamos prestamo = new Modelo.Prestamos();
         //a nuestra atributo global le guardamos los datos en sus respectivos cambios
         prestamoM.setISBNLibro(Integer.valueOf(ISBNLibro));
@@ -230,7 +227,7 @@ public class EditarPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
-       // jTextFieldISBN.setText("");
+        // jTextFieldISBN.setText("");
         //jTextFieldISBN.setForeground(Color.BLACK);
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldISBNMousePressed
@@ -240,7 +237,7 @@ public class EditarPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldISBNActionPerformed
 
     private void jTextFieldEstadoPrestamoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldEstadoPrestamoMousePressed
-      //  jTextFieldEstadoPrestamo.setText("");
+        //  jTextFieldEstadoPrestamo.setText("");
         //jTextFieldEstadoPrestamo.setForeground(Color.BLACK);
         //jTextFieldAnalisis.setForeground();
     }//GEN-LAST:event_jTextFieldEstadoPrestamoMousePressed

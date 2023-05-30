@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOPrestamosImpl;
@@ -14,9 +11,9 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author DBUSTAMANTEP
  */
+
 public class NuevoPrestamo extends javax.swing.JFrame {
 
     /**
@@ -182,7 +179,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
-        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
 
@@ -198,34 +195,33 @@ public class NuevoPrestamo extends javax.swing.JFrame {
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
         //creamos variables para guardar los datos de nuestros JTextField
-        int ISBNLibro=Integer.parseInt(jTextFieldISBN.getText());
-        long documentoUsuario=Long.parseLong(jTextFieldUsuario.getText());
-        String Estado=jTextFieldEstadoPrestamo.getText();
-        
-            //llamamos el metodod de generarReporte el cual nos guarda en un CSV
-            generarReporte(); 
-            //cambiamos de JFrame al JFrame de prestamos
-            this.setVisible(false);
-            Prestamos prestamos=new Prestamos();
-            prestamos.setVisible(true);
-            //creamos un nuevo objeto de tipo Prestamo
-            Modelo.Prestamos prestamo=new Modelo.Prestamos();
-            //al nuevo prestamo le asignamos los valores que sacamos de los textFields anteriormente
-            prestamo.setISBNLibro(ISBNLibro);
-            prestamo.setDocumentoUsuario(documentoUsuario);
-            prestamo.setEstado(Estado);
-            
-            try{
-                //creamos un nuevo dao para hacer el registro del prestamo
-                DAOPrestamos dao=new DAOPrestamosImpl();
-                dao.Registrar(prestamo);
-                JOptionPane.showMessageDialog(null, "Registro exitoso");
-            }
-            catch(Exception e){
-                System.out.println(e.getMessage());
-            }
-            
-            
+        int ISBNLibro = Integer.parseInt(jTextFieldISBN.getText());
+        long documentoUsuario = Long.parseLong(jTextFieldUsuario.getText());
+        String Estado = jTextFieldEstadoPrestamo.getText();
+
+        //llamamos el metodod de generarReporte el cual nos guarda en un CSV
+        generarReporte();
+        //cambiamos de JFrame al JFrame de prestamos
+        this.setVisible(false);
+        Prestamos prestamos = new Prestamos();
+        prestamos.setVisible(true);
+        //creamos un nuevo objeto de tipo Prestamo
+        Modelo.Prestamos prestamo = new Modelo.Prestamos();
+        //al nuevo prestamo le asignamos los valores que sacamos de los textFields anteriormente
+        prestamo.setISBNLibro(ISBNLibro);
+        prestamo.setDocumentoUsuario(documentoUsuario);
+        prestamo.setEstado(Estado);
+
+        try {
+            //creamos un nuevo dao para hacer el registro del prestamo
+            DAOPrestamos dao = new DAOPrestamosImpl();
+            dao.Registrar(prestamo);
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
@@ -248,19 +244,21 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEstadoPrestamoActionPerformed
 //metodo donde generamos un reporte al csv
+
     private void generarReporte() {
-         try{
+        try {
             BufferedWriter outStream = new BufferedWriter(new FileWriter("ReportePrestamo.csv", true));
-            LocalDate now=LocalDate.now();
-            outStream.write(now+","+jTextFieldISBN.getText()+" , "+jTextFieldUsuario.getText()+" , "+jTextFieldEstadoPrestamo.getText()+"\n");
+            LocalDate now = LocalDate.now();
+            outStream.write(now + "," + jTextFieldISBN.getText() + " , " + jTextFieldUsuario.getText() + " , " + jTextFieldEstadoPrestamo.getText() + "\n");
             outStream.close();
             JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente el registro");
             // System.out.println("Registro guardado de manera exitosa");
-            
-        }catch(IOException exception){
+
+        } catch (IOException exception) {
             JOptionPane.showMessageDialog(null, "Se ha producido un error intente nuevamente");
         }
     }
+
     /**
      * @param args the command line arguments
      */

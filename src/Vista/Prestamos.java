@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOPrestamosImpl;
@@ -18,33 +15,31 @@ import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
+/*
  * @author DBUSTAMANTEP
  */
 public class Prestamos extends javax.swing.JFrame {
 
     //jtable
     DefaultTableModel modelo = new DefaultTableModel();
-    
+
     public Prestamos() {
         initComponents();
-        
-        LocalDate now=LocalDate.now();
-        Locale spanishLocale=new Locale("es","ES");
-        jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY",spanishLocale)));
-        
+
+        LocalDate now = LocalDate.now();
+        Locale spanishLocale = new Locale("es", "ES");
+        jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY", spanishLocale)));
+
         //jtable
         this.jTablePrestamos.setModel(modelo);
         this.modelo.addColumn("ID");
         this.modelo.addColumn("ISBN libro");
         this.modelo.addColumn("Documento usuario");
         this.modelo.addColumn("Estado");
-        
+
         cargarDatos();
     }
-    
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -329,90 +324,88 @@ public class Prestamos extends javax.swing.JFrame {
     private void jButtonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariosActionPerformed
         JOptionPane.showMessageDialog(null, "Usuarios");
         this.setVisible(false);
-        
-        Usuarios usuarios=new Usuarios();
+
+        Usuarios usuarios = new Usuarios();
         usuarios.setVisible(true);
     }//GEN-LAST:event_jButtonUsuariosActionPerformed
 
     private void jButtonLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLibrosActionPerformed
         JOptionPane.showMessageDialog(null, "Libros");
         this.setVisible(false);
-        
-        Prestamos libros=new Prestamos();
+
+        Prestamos libros = new Prestamos();
         libros.setVisible(true);
     }//GEN-LAST:event_jButtonLibrosActionPerformed
 
     private void jButtonHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHomeActionPerformed
         JOptionPane.showMessageDialog(null, "Home");
         this.setVisible(false);
-        
-        Home home=new Home();
+
+        Home home = new Home();
         home.setVisible(true);
     }//GEN-LAST:event_jButtonHomeActionPerformed
 
     private void jButtonPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPrestamosActionPerformed
         JOptionPane.showMessageDialog(null, "Prestamos");
         this.setVisible(false);
-        
-        Prestamos prestamos=new Prestamos();
+
+        Prestamos prestamos = new Prestamos();
         prestamos.setVisible(true);
     }//GEN-LAST:event_jButtonPrestamosActionPerformed
 
     private void jLabelExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelExitMousePressed
-        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPrestamoActionPerformed
         //creamos un objeto de nuestra clase dao para hacer uso de su metodo eliminar
-        DAOPrestamos prestamos=new DAOPrestamosImpl();
+        DAOPrestamos prestamos = new DAOPrestamosImpl();
         //verificamos que el usuario si este selccionando un dato de la tabla
-         if(jTablePrestamos.getSelectedRow()>-1){
-                //for(int i:jTableLibros.getSelectedRow()){
-                  try{
-                       //conseguimos el id del prestamo que se esta seleccionando en la tabla y borramos ese fila de la tabla
-                      prestamos.Eliminar((int)jTablePrestamos.getValueAt(jTablePrestamos.getSelectedRow(), 0));
-                      modelo.removeRow(jTablePrestamos.getSelectedRow());
-                  }
-                  catch(Exception e){
-                      System.out.println(e.getMessage());
-                  }
-             // }
-         }else{
-             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
-         }
+        if (jTablePrestamos.getSelectedRow() > -1) {
+            //for(int i:jTableLibros.getSelectedRow()){
+            try {
+                //conseguimos el id del prestamo que se esta seleccionando en la tabla y borramos ese fila de la tabla
+                prestamos.Eliminar((int) jTablePrestamos.getValueAt(jTablePrestamos.getSelectedRow(), 0));
+                modelo.removeRow(jTablePrestamos.getSelectedRow());
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+            // }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
+        }
     }//GEN-LAST:event_jButtonBorrarPrestamoActionPerformed
 
     private void jButtonNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoPrestamoActionPerformed
         this.setVisible(false);
-        
-        NuevoPrestamo nuevoPrestamo= new NuevoPrestamo();
+
+        NuevoPrestamo nuevoPrestamo = new NuevoPrestamo();
         nuevoPrestamo.setVisible(true);
     }//GEN-LAST:event_jButtonNuevoPrestamoActionPerformed
 
     private void jButtonEditrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditrarPrestamoActionPerformed
         //System.out.println(jTablePrestamos.getSelectedRow());
         //verificamos que el usuario seleccione un dato
-        if(jTablePrestamos.getSelectedRow()>-1){
+        if (jTablePrestamos.getSelectedRow() > -1) {
             //del dato selccionado conseguimos el id
-            int id=(int)jTablePrestamos.getValueAt(jTablePrestamos.getSelectedRow(), 0);
+            int id = (int) jTablePrestamos.getValueAt(jTablePrestamos.getSelectedRow(), 0);
             //System.out.println("id prestamo "+id);
             //creamos un objeto del dao
-            DAOPrestamos dao=new DAOPrestamosImpl();
-            
+            DAOPrestamos dao = new DAOPrestamosImpl();
+
             try {
                 //a nuestro jframe le enviamos por parametros el objeto a editar
                 this.setVisible(false);
-                EditarPrestamo editar=new EditarPrestamo(dao.getPrestamosbyID(id));
+                EditarPrestamo editar = new EditarPrestamo(dao.getPrestamosbyID(id));
                 editar.setVisible(true);
             } catch (Exception ex) {
-                System.out.println("Error al intentar editar "+ex);
+                System.out.println("Error al intentar editar " + ex);
             }
-            
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
         }
-        else{
-             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
-         }
     }//GEN-LAST:event_jButtonEditrarPrestamoActionPerformed
 
     /**
@@ -480,13 +473,12 @@ public class Prestamos extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void cargarDatos() {
-        try{
-            DAOPrestamos prestamos=new DAOPrestamosImpl();
-            List<Modelo.Prestamos>lista=prestamos.Lista();
-            prestamos.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getID(),u.getISBNLibro(),u.getDocumentoUsuario(),u.getEstado(),}));
-        }
-        catch(Exception e){
+        try {
+            DAOPrestamos prestamos = new DAOPrestamosImpl();
+            List<Modelo.Prestamos> lista = prestamos.Lista();
+            prestamos.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getID(), u.getISBNLibro(), u.getDocumentoUsuario(), u.getEstado(),}));
+        } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
     }
-}
 }

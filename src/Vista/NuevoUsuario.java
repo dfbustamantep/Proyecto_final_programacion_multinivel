@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOUsuariosImpl;
@@ -13,9 +10,9 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
- *
  * @author DBUSTAMANTEP
  */
+
 public class NuevoUsuario extends javax.swing.JFrame {
 
     /**
@@ -242,10 +239,10 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
-        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
-    
+
     private void jTextFieldApellidoUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldApellidoUsuarioMousePressed
         jTextFieldApellidoUsuario.setText("");
         jTextFieldApellidoUsuario.setForeground(Color.BLACK);
@@ -257,35 +254,34 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldApellidoUsuarioActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        Long documentoUsuario=Long.parseLong(jTextFieldDocumento.getText());
-        String Nombre=jTextFieldNombre.getText();
-        String Apellido=jTextFieldApellidoUsuario.getText();
-        String Correo=jTextFieldCorreo.getText();
-        Long nContacto=Long.parseLong(jTextFieldNContacto.getText());
-        
-                generarReporte();
-                this.setVisible(false);
-                Usuarios usuarios=new Usuarios();
-                usuarios.setVisible(true);
-        
-            Modelo.Usuarios usuario=new Modelo.Usuarios();
-            
-            usuario.setDocumento(documentoUsuario);
-            usuario.setNombre(Nombre);
-            usuario.setApellido(Apellido);
-            usuario.setCorreo(Correo);
-            usuario.setnContacto(nContacto);
-            
-            try{
-                DAOUsuarios usuarisd= new DAOUsuariosImpl();
-                usuarisd.Registrar(usuario);
-                JOptionPane.showMessageDialog(null, "Registro exitoso");
-                
-            }
-            catch(Exception e){
-                System.out.println(e.getMessage());
-            }
-           
+        Long documentoUsuario = Long.parseLong(jTextFieldDocumento.getText());
+        String Nombre = jTextFieldNombre.getText();
+        String Apellido = jTextFieldApellidoUsuario.getText();
+        String Correo = jTextFieldCorreo.getText();
+        Long nContacto = Long.parseLong(jTextFieldNContacto.getText());
+
+        generarReporte();
+        this.setVisible(false);
+        Usuarios usuarios = new Usuarios();
+        usuarios.setVisible(true);
+
+        Modelo.Usuarios usuario = new Modelo.Usuarios();
+
+        usuario.setDocumento(documentoUsuario);
+        usuario.setNombre(Nombre);
+        usuario.setApellido(Apellido);
+        usuario.setCorreo(Correo);
+        usuario.setnContacto(nContacto);
+
+        try {
+            DAOUsuarios usuarisd = new DAOUsuariosImpl();
+            usuarisd.Registrar(usuario);
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
@@ -326,20 +322,21 @@ public class NuevoUsuario extends javax.swing.JFrame {
     private void jTextFieldDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDocumentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDocumentoActionPerformed
-    
+
     private void generarReporte() {
-         try{
+        try {
             BufferedWriter outStream = new BufferedWriter(new FileWriter("ReporteNuevosUsuarios.csv", true));
-            
-            outStream.write(jTextFieldDocumento.getText()+","+jTextFieldNombre.getText()+","+jTextFieldApellidoUsuario.getText()+","+jTextFieldCorreo.getText()+","+jTextFieldNContacto.getText()+"\n");
+
+            outStream.write(jTextFieldDocumento.getText() + "," + jTextFieldNombre.getText() + "," + jTextFieldApellidoUsuario.getText() + "," + jTextFieldCorreo.getText() + "," + jTextFieldNContacto.getText() + "\n");
             outStream.close();
             JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente el registro");
             // System.out.println("Registro guardado de manera exitosa");
-            
-        }catch(IOException exception){
+
+        } catch (IOException exception) {
             JOptionPane.showMessageDialog(null, "Se ha producido un error intente nuevamente");
         }
     }
+
     /**
      * @param args the command line arguments
      */

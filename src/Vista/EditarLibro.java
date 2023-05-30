@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Vista;
 
 import DAO.Imp.DAOLibrosImpl;
@@ -9,10 +6,10 @@ import DAO.Interfaces.DAOLibros;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
-/**
- *
+/*
  * @author DBUSTAMANTEP
  */
+
 public class EditarLibro extends javax.swing.JFrame {
 
     Modelo.Libros libroM;
@@ -315,12 +312,7 @@ public class EditarLibro extends javax.swing.JFrame {
             DAOLibros librosd = new DAOLibrosImpl();
             librosd.Modificar(libro);
             JOptionPane.showMessageDialog(null, "Modificación exitosa");
-            /*jTextFieldNombre.setText("");
-            jTextFieldISBN.setText("");
-            jTextFieldAutor.setText("");
-            jTextFieldFechaP.setText("");
-            jTextFieldNEjemplares.setText("");
-            jTextFieldResumen.setText("");*/
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
