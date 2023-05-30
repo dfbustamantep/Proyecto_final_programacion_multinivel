@@ -4,11 +4,14 @@
  */
 package Vista;
 
+import DAO.Imp.DAOUsuariosImpl;
+import DAO.Interfaces.DAOUsuarios;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -35,6 +38,8 @@ public class Usuarios extends javax.swing.JFrame {
         this.modelo.addColumn("Apellido");
         this.modelo.addColumn("Correo");
         this.modelo.addColumn("Numero de contacto");
+        
+        cargarDatos(); 
     }
     
    
@@ -254,13 +259,10 @@ public class Usuarios extends javax.swing.JFrame {
         jTableUsuarios.setBackground(new java.awt.Color(255, 255, 255));
         jTableUsuarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTableUsuarios.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTableUsuarios.setForeground(new java.awt.Color(255, 255, 255));
+        jTableUsuarios.setForeground(new java.awt.Color(0, 0, 0));
         jTableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nombre", "Apellido", "Correo", "Numero de contacto"
@@ -298,6 +300,11 @@ public class Usuarios extends javax.swing.JFrame {
         jButtonEditrarUsuario.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jButtonEditrarUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jButtonEditrarUsuario.setText("Editar Usuario");
+        jButtonEditrarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditrarUsuarioActionPerformed(evt);
+            }
+        });
         BackGround.add(jButtonEditrarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 670, 150, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -352,7 +359,21 @@ public class Usuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarUsuarioActionPerformed
-        //this.setVisible(false);
+         DAOUsuarios usuario=new DAOUsuariosImpl();
+         if(jTableUsuarios.getSelectedRow()>-1){
+                //for(int i:jTableLibros.getSelectedRow()){
+                  try{
+                       //conseguimos el id del linro que se esta seleccionando en la tabla
+                      usuario.Eliminar((long) jTableUsuarios.getValueAt(jTableUsuarios.getSelectedRow(), 0));
+                      modelo.removeRow(jTableUsuarios.getSelectedRow());
+                  }
+                  catch(Exception e){
+                      System.out.println("Error en eliminacion"+e.getMessage());
+                  }
+             // }
+         }else{
+             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
+         }
     }//GEN-LAST:event_jButtonBorrarUsuarioActionPerformed
 
     private void jButtonNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoUsuarioActionPerformed
@@ -361,6 +382,26 @@ public class Usuarios extends javax.swing.JFrame {
         NuevoUsuario nuevoUsuario= new NuevoUsuario();
         nuevoUsuario.setVisible(true);
     }//GEN-LAST:event_jButtonNuevoUsuarioActionPerformed
+
+    private void jButtonEditrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditrarUsuarioActionPerformed
+       // System.out.println(jTableUsuarios.getSelectedRow());
+       if(jTableUsuarios.getSelectedRow()>-1){
+            Long documento=(Long) jTableUsuarios.getValueAt(jTableUsuarios.getSelectedRow(), 0);
+            DAOUsuarios dao=new DAOUsuariosImpl();
+            
+            try {
+                this.setVisible(false);
+                EditarUsuario editar = new EditarUsuario(dao.getUsuariobyDocument(documento));
+                editar.setVisible(true);
+            } catch (Exception ex) {
+                System.out.println("Error al intentar editar "+ex);
+            }
+            
+        }
+        else{
+             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
+         }
+    }//GEN-LAST:event_jButtonEditrarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,4 +466,15 @@ public class Usuarios extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableUsuarios;
     // End of variables declaration//GEN-END:variables
+
+         private void cargarDatos() {
+        try{
+            DAOUsuarios usuarios=new DAOUsuariosImpl();
+            List<Modelo.Usuarios>lista=usuarios.Lista();
+            usuarios.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getDocumento(),u.getNombre(),u.getApellido(),u.getCorreo(),u.getnContacto()}));
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 }

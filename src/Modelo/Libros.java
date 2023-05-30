@@ -8,8 +8,10 @@ package Modelo;
  *
  * @author DBUSTAMANTEP
  */
+//en esta clase tenemos todos los atributos que tienen nuestras tablas en la bd
 public class Libros {
-   // private int ID;
+    // private int ID;
+
     private int ISBN;
     private String nombre;
     private String autor;
@@ -18,8 +20,6 @@ public class Libros {
     private int nEjemplaresDisponibles;
     private String Resumen;
 
-    
-    
     public String getNombre() {
         return nombre;
     }
@@ -75,6 +75,5 @@ public class Libros {
     public void setISBN(int ISBN) {
         this.ISBN = ISBN;
     }
-    
-    
+
 }

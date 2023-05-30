@@ -197,21 +197,26 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
+        //creamos variables para guardar los datos de nuestros JTextField
         int ISBNLibro=Integer.parseInt(jTextFieldISBN.getText());
         long documentoUsuario=Long.parseLong(jTextFieldUsuario.getText());
         String Estado=jTextFieldEstadoPrestamo.getText();
         
+            //llamamos el metodod de generarReporte el cual nos guarda en un CSV
             generarReporte(); 
+            //cambiamos de JFrame al JFrame de prestamos
             this.setVisible(false);
             Prestamos prestamos=new Prestamos();
             prestamos.setVisible(true);
-            
+            //creamos un nuevo objeto de tipo Prestamo
             Modelo.Prestamos prestamo=new Modelo.Prestamos();
+            //al nuevo prestamo le asignamos los valores que sacamos de los textFields anteriormente
             prestamo.setISBNLibro(ISBNLibro);
             prestamo.setDocumentoUsuario(documentoUsuario);
             prestamo.setEstado(Estado);
             
             try{
+                //creamos un nuevo dao para hacer el registro del prestamo
                 DAOPrestamos dao=new DAOPrestamosImpl();
                 dao.Registrar(prestamo);
                 JOptionPane.showMessageDialog(null, "Registro exitoso");
@@ -242,12 +247,12 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     private void jTextFieldEstadoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEstadoPrestamoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEstadoPrestamoActionPerformed
-
+//metodo donde generamos un reporte al csv
     private void generarReporte() {
          try{
             BufferedWriter outStream = new BufferedWriter(new FileWriter("ReportePrestamo.csv", true));
             LocalDate now=LocalDate.now();
-            outStream.write(now+jTextFieldISBN.getText()+" , "+jTextFieldUsuario.getText()+" , "+jTextFieldEstadoPrestamo.getText()+"\n");
+            outStream.write(now+","+jTextFieldISBN.getText()+" , "+jTextFieldUsuario.getText()+" , "+jTextFieldEstadoPrestamo.getText()+"\n");
             outStream.close();
             JOptionPane.showMessageDialog(null, "Se ha guardado exitosamente el registro");
             // System.out.println("Registro guardado de manera exitosa");

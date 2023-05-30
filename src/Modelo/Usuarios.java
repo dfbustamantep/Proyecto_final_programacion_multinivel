@@ -8,13 +8,15 @@ package Modelo;
  *
  * @author DBUSTAMANTEP
  */
+//en esta clase tenemos todos los atributos que tienen nuestras tablas en la bd
 public class Usuarios {
+
     //private int ID;
-    private String documento;
+    private long documento;
     private String nombre;
     private String apellido;
     private String correo;
-    private int nContacto;
+    private long nContacto;
 
     public String getNombre() {
         return nombre;
@@ -40,21 +42,20 @@ public class Usuarios {
         this.correo = correo;
     }
 
-    public int getnContacto() {
+    public long getnContacto() {
         return nContacto;
     }
 
-    public void setnContacto(int nContacto) {
+    public void setnContacto(long nContacto) {
         this.nContacto = nContacto;
     }
 
-    public String getDocumento() {
+    public long getDocumento() {
         return documento;
     }
 
-    public void setDocumento(String documento) {
+    public void setDocumento(long documento) {
         this.documento = documento;
     }
-    
-    
+
 }

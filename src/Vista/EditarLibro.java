@@ -14,22 +14,24 @@ import javax.swing.JOptionPane;
  * @author DBUSTAMANTEP
  */
 public class EditarLibro extends javax.swing.JFrame {
-    Modelo.Libros libroM; 
-            /**
+
+    Modelo.Libros libroM;
+
+    /**
      * Creates new form EditarLibro
      */
     public EditarLibro(Modelo.Libros libro) {
         initComponents();
-        
-         this.libroM=libro;
-         
+
+        this.libroM = libro;
+
         jTextFieldNombre.setText(libroM.getNombre());
-        jTextFieldISBN.setText(""+libroM.getISBN());
+        jTextFieldISBN.setText("" + libroM.getISBN());
         jTextFieldAutor.setText(libroM.getAutor());
         jTextFieldFechaP.setText(libroM.getFechaPublicacion());
-        jTextFieldNEjemplares.setText(""+libroM.getnEjemplares());
-        jTextFieldResumen.setText(""+libroM.getResumen());
-       
+        jTextFieldNEjemplares.setText("" + libroM.getnEjemplares());
+        jTextFieldResumen.setText("" + libroM.getResumen());
+
     }
 
     /**
@@ -275,12 +277,12 @@ public class EditarLibro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
-        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
 
     private void jTextFieldAutorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldAutorMousePressed
-        
+
         // jTextFieldDescripcion.setForeground();
     }//GEN-LAST:event_jTextFieldAutorMousePressed
 
@@ -289,18 +291,18 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldAutorActionPerformed
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
-        String nombre=jTextFieldNombre.getText();
-        String ISBN=jTextFieldISBN.getText();
-        String autor=jTextFieldAutor.getText();
-        String fechaP=jTextFieldFechaP.getText();
-        int nEjemplares=Integer.parseInt(jTextFieldNEjemplares.getText());
-        String resumen=jTextFieldResumen.getText();
-        
+        String nombre = jTextFieldNombre.getText();
+        String ISBN = jTextFieldISBN.getText();
+        String autor = jTextFieldAutor.getText();
+        String fechaP = jTextFieldFechaP.getText();
+        int nEjemplares = Integer.parseInt(jTextFieldNEjemplares.getText());
+        String resumen = jTextFieldResumen.getText();
+
         this.setVisible(false);
-        Libros libros=new Libros();
+        Libros libros = new Libros();
         libros.setVisible(true);
-        
-        Modelo.Libros libro=new Modelo.Libros();
+
+        Modelo.Libros libro = new Modelo.Libros();
         libro.setISBN(Integer.parseInt(ISBN));
         libro.setNombre(nombre);
         libro.setAutor(autor);
@@ -308,9 +310,9 @@ public class EditarLibro extends javax.swing.JFrame {
         libro.setnEjemplares(nEjemplares);
         libro.setnEjemplaresDisponibles(nEjemplares);
         libro.setResumen(resumen);
-        
-        try{
-            DAOLibros librosd= new DAOLibrosImpl();
+
+        try {
+            DAOLibros librosd = new DAOLibrosImpl();
             librosd.Modificar(libro);
             JOptionPane.showMessageDialog(null, "Modificación exitosa");
             /*jTextFieldNombre.setText("");
@@ -319,14 +321,13 @@ public class EditarLibro extends javax.swing.JFrame {
             jTextFieldFechaP.setText("");
             jTextFieldNEjemplares.setText("");
             jTextFieldResumen.setText("");*/
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
-        
+
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldISBNMousePressed
 
@@ -335,7 +336,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldISBNActionPerformed
 
     private void jTextFieldNEjemplaresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNEjemplaresMousePressed
-        
+
         //jTextFieldAnalisis.setForeground();
     }//GEN-LAST:event_jTextFieldNEjemplaresMousePressed
 
@@ -344,7 +345,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNEjemplaresActionPerformed
 
     private void jTextFieldResumenMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldResumenMousePressed
-       
+
     }//GEN-LAST:event_jTextFieldResumenMousePressed
 
     private void jTextFieldResumenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldResumenActionPerformed
@@ -352,7 +353,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldResumenActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
-        
+
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldNombreMousePressed
 
@@ -361,7 +362,7 @@ public class EditarLibro extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldFechaPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFechaPMousePressed
-       
+
     }//GEN-LAST:event_jTextFieldFechaPMousePressed
 
     private void jTextFieldFechaPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaPActionPerformed
@@ -398,6 +399,7 @@ public class EditarLibro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             Modelo.Libros libro;
+
             public void run() {
                 new EditarLibro(libro).setVisible(true);
             }

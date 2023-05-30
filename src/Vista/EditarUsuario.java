@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import DAO.Imp.DAOUsuariosImpl;
+import DAO.Interfaces.DAOUsuarios;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -13,11 +15,31 @@ import javax.swing.JOptionPane;
  */
 public class EditarUsuario extends javax.swing.JFrame {
 
+    Modelo.Usuarios usuarioM;
+
     /**
      * Creates new form EditarUsuario
      */
-    public EditarUsuario() {
+    public EditarUsuario(Modelo.Usuarios usuario) {
         initComponents();
+
+        this.usuarioM = usuario;
+
+        /*//jTextFieldDocumento.setText("" + usuarioM.getDocumento());
+        jTextFieldDocumento.setText(""+usuarioM.getDocumento());
+        //jTextFieldNombre.setText(usuarioM.getNombre());
+        jTextFieldNombre.setText(usuarioM.getNombre());
+        //jTextFieldApellidoUsuario.setText(usuarioM.getApellido());
+        jTextFieldApellidoUsuario.setText(usuarioM.getApellido());
+        //jTextFieldCorreo.setText(usuarioM.getCorreo());
+        jTextFieldCorreo.setText(usuarioM.getCorreo());
+        //jTextFieldNContacto.setText("" + usuarioM.getnContacto());
+        jTextFieldNContacto.setText(""+usuarioM.getnContacto());*/
+        jTextFieldDocumento.setText(String.valueOf(usuarioM.getDocumento()));
+        jTextFieldNombre.setText(usuarioM.getNombre());
+        jTextFieldApellidoUsuario.setText(usuarioM.getApellido());
+        jTextFieldCorreo.setText(usuarioM.getCorreo());
+        jTextFieldNContacto.setText(String.valueOf(usuarioM.getnContacto()));
     }
 
     /**
@@ -51,13 +73,16 @@ public class EditarUsuario extends javax.swing.JFrame {
         LblDocumento = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanelFondo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         Titulo.setForeground(new java.awt.Color(0, 0, 0));
-        Titulo.setText("Creación de usuario");
+        Titulo.setText("Modificación usuario");
         jPanelFondo.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 470, 110));
 
         JLabelSalida.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
@@ -88,7 +113,7 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         jTextFieldApellidoUsuario.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldApellidoUsuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldApellidoUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldApellidoUsuario.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldApellidoUsuario.setText("Ingrese el apellido del usuario");
         jTextFieldApellidoUsuario.setBorder(null);
         jTextFieldApellidoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -118,7 +143,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         jButtonGuardar.setBackground(new java.awt.Color(255, 255, 255));
         jButtonGuardar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jButtonGuardar.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonGuardar.setText("Guardar nuevo usuario");
+        jButtonGuardar.setText("Guardar cambios de usuario");
         jButtonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,7 +154,7 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldNombre.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldNombre.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldNombre.setText("Ingrese el nombre del usuario");
         jTextFieldNombre.setBorder(null);
         jTextFieldNombre.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -146,7 +171,7 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         jTextFieldCorreo.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldCorreo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldCorreo.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldCorreo.setText("Ingrese el correo del usuario");
         jTextFieldCorreo.setBorder(null);
         jTextFieldCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -163,7 +188,7 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         jTextFieldNContacto.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNContacto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldNContacto.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldNContacto.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldNContacto.setText("Ingrese un numero de contacto");
         jTextFieldNContacto.setBorder(null);
         jTextFieldNContacto.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -197,7 +222,7 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         jTextFieldDocumento.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldDocumento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jTextFieldDocumento.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldDocumento.setForeground(new java.awt.Color(0, 0, 0));
         jTextFieldDocumento.setText("Ingrese el documento del usuario");
         jTextFieldDocumento.setBorder(null);
         jTextFieldDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,13 +259,13 @@ public class EditarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
-        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
 
     private void jTextFieldApellidoUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldApellidoUsuarioMousePressed
-        jTextFieldApellidoUsuario.setText("");
-        jTextFieldApellidoUsuario.setForeground(Color.BLACK);
+        //jTextFieldApellidoUsuario.setText("");
+        //jTextFieldApellidoUsuario.setForeground(Color.BLACK);
         // jTextFieldDescripcion.setForeground();
     }//GEN-LAST:event_jTextFieldApellidoUsuarioMousePressed
 
@@ -249,20 +274,36 @@ public class EditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldApellidoUsuarioActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-        if((jTextFieldNombre.getText()!="")&&(jTextFieldDocumento.getText()!="")&&(jTextFieldNombre.getText()!="")&&(jTextFieldApellidoUsuario.getText()!="")&&(jTextFieldCorreo.getText()!="")&&(jTextFieldNContacto.getText()!="")){
-            
-            this.setVisible(false);
-            Usuarios usuarios=new Usuarios();
-            usuarios.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null,"Por favor llene todos los campos");
+        Long documento = Long.valueOf(jTextFieldDocumento.getText());
+        String nombre = jTextFieldNombre.getText();
+        String apellido = jTextFieldApellidoUsuario.getText();
+        String correo = jTextFieldCorreo.getText();
+        Long nContacto = Long.valueOf(jTextFieldNContacto.getText());
+
+        this.setVisible(false);
+        Usuarios usuarios = new Usuarios();
+        usuarios.setVisible(true);
+
+        Modelo.Usuarios usuario = new Modelo.Usuarios();
+        usuario.setDocumento(documento);
+        usuario.setNombre(nombre);
+        usuario.setApellido(apellido);
+        usuario.setCorreo(correo);
+        usuario.setnContacto(nContacto);
+
+        try {
+            DAOUsuarios usuariosd = new DAOUsuariosImpl();
+            usuariosd.Modificar(usuario);
+            JOptionPane.showMessageDialog(null, "Modificación exitosa");
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
     private void jTextFieldNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNombreMousePressed
-        jTextFieldNombre.setText("");
-        jTextFieldNombre.setForeground(Color.BLACK);
+
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldNombreMousePressed
 
@@ -271,8 +312,7 @@ public class EditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldCorreoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldCorreoMousePressed
-        jTextFieldCorreo.setText("");
-        jTextFieldCorreo.setForeground(Color.BLACK);
+
         //jTextFieldAnalisis.setForeground();
     }//GEN-LAST:event_jTextFieldCorreoMousePressed
 
@@ -281,8 +321,7 @@ public class EditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCorreoActionPerformed
 
     private void jTextFieldNContactoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldNContactoMousePressed
-        jTextFieldNContacto.setText("");
-        jTextFieldNContacto.setForeground(Color.BLACK);
+
     }//GEN-LAST:event_jTextFieldNContactoMousePressed
 
     private void jTextFieldNContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNContactoActionPerformed
@@ -290,8 +329,7 @@ public class EditarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNContactoActionPerformed
 
     private void jTextFieldDocumentoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldDocumentoMousePressed
-        jTextFieldDocumento.setText("");
-        jTextFieldDocumento.setForeground(Color.BLACK);
+
         // jTextFieldDescripcion.setForeground();
     }//GEN-LAST:event_jTextFieldDocumentoMousePressed
 
@@ -306,7 +344,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -328,8 +366,10 @@ public class EditarUsuario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            Modelo.Usuarios usuario;
+
             public void run() {
-                new EditarUsuario().setVisible(true);
+                new EditarUsuario(usuario).setVisible(true);
             }
         });
     }

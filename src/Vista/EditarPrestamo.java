@@ -14,17 +14,20 @@ import javax.swing.JOptionPane;
  * @author DBUSTAMANTEP
  */
 public class EditarPrestamo extends javax.swing.JFrame {
-   Modelo.Prestamos prestamoM;
+
+    Modelo.Prestamos prestamoM;
+
     /**
      * Creates new form EditarPrestamos
      */
     public EditarPrestamo(Modelo.Prestamos prestamo) {
         initComponents();
+
+        this.prestamoM = prestamo;
         
-        this.prestamoM=prestamo;
-        
-        jTextFieldISBN.setText(""+prestamoM.getISBNLibro());
-        jTextFieldUsuario.setText(""+prestamoM.getDocumentoUsuario());
+        System.out.println("ID prestamo en editar "+prestamoM.getID()       );
+        jTextFieldISBN.setText("" + prestamoM.getISBNLibro());
+        jTextFieldUsuario.setText("" + prestamoM.getDocumentoUsuario());
         jTextFieldEstadoPrestamo.setText(prestamoM.getEstado());
     }
 
@@ -53,6 +56,8 @@ public class EditarPrestamo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
         jPanelFondo.setBackground(new java.awt.Color(255, 255, 255));
         jPanelFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -181,13 +186,13 @@ public class EditarPrestamo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabelSalidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelSalidaMouseClicked
-        JOptionPane.showMessageDialog(null,"Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
+        JOptionPane.showMessageDialog(null, "Gracias por usar nuestro sistema de biblioteca\nTenga un buen día");
         System.exit(0);
     }//GEN-LAST:event_JLabelSalidaMouseClicked
 
     private void jTextFieldUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioMousePressed
-        jTextFieldUsuario.setText("");
-        jTextFieldUsuario.setForeground(Color.BLACK);
+        //jTextFieldUsuario.setText("");
+        //jTextFieldUsuario.setForeground(Color.BLACK);
         // jTextFieldDescripcion.setForeground();
     }//GEN-LAST:event_jTextFieldUsuarioMousePressed
 
@@ -196,33 +201,37 @@ public class EditarPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonGuaradrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradrActionPerformed
-        int ISBNLibro=Integer.parseInt(jTextFieldISBN.getText());
-        long documentoUsuario=Long.parseLong(jTextFieldUsuario.getText());
-        String Estado=jTextFieldEstadoPrestamo.getText();
+        //creamos variables para guardar los datos de los JTextFields
+        int ISBNLibro = Integer.parseInt(jTextFieldISBN.getText());
+        //System.out.println(ISBNLibro);
+        long documentoUsuario = Long.parseLong(jTextFieldUsuario.getText());
+        //System.out.println(documentoUsuario);
+        String Estado = jTextFieldEstadoPrestamo.getText();
+        //System.out.println(Estado);
+
+        this.setVisible(false);
+        Prestamos prestamos = new Prestamos();
+        prestamos.setVisible(true);
         
-             
-            this.setVisible(false);
-            Prestamos prestamos=new Prestamos();
-            prestamos.setVisible(true);
-            
-            Modelo.Prestamos prestamo=new Modelo.Prestamos();
-            prestamo.setISBNLibro(ISBNLibro);
-            prestamo.setDocumentoUsuario(documentoUsuario);
-            prestamo.setEstado(Estado);
-            
-            try{
-                DAOPrestamos dao=new DAOPrestamosImpl();
-                dao.Modificar(prestamo);
-                JOptionPane.showMessageDialog(null, "Registro exitoso");
-            }
-            catch(Exception e){
-                System.out.println(e.getMessage());
-            }
+        //Modelo.Prestamos prestamo = new Modelo.Prestamos();
+        //a nuestra atributo global le guardamos los datos en sus respectivos cambios
+        prestamoM.setISBNLibro(Integer.valueOf(ISBNLibro));
+        prestamoM.setDocumentoUsuario(documentoUsuario);
+        prestamoM.setEstado(Estado);
+
+        try {
+            //llamamos al metodo del dao ara modificar
+            DAOPrestamos dao = new DAOPrestamosImpl();
+            dao.Modificar(prestamoM);
+            JOptionPane.showMessageDialog(null, "Registro exitoso");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_jButtonGuaradrActionPerformed
 
     private void jTextFieldISBNMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldISBNMousePressed
-        jTextFieldISBN.setText("");
-        jTextFieldISBN.setForeground(Color.BLACK);
+       // jTextFieldISBN.setText("");
+        //jTextFieldISBN.setForeground(Color.BLACK);
         //jTextFieldNombre.setForeground();
     }//GEN-LAST:event_jTextFieldISBNMousePressed
 
@@ -231,8 +240,8 @@ public class EditarPrestamo extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldISBNActionPerformed
 
     private void jTextFieldEstadoPrestamoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldEstadoPrestamoMousePressed
-        jTextFieldEstadoPrestamo.setText("");
-        jTextFieldEstadoPrestamo.setForeground(Color.BLACK);
+      //  jTextFieldEstadoPrestamo.setText("");
+        //jTextFieldEstadoPrestamo.setForeground(Color.BLACK);
         //jTextFieldAnalisis.setForeground();
     }//GEN-LAST:event_jTextFieldEstadoPrestamoMousePressed
 
@@ -271,7 +280,7 @@ public class EditarPrestamo extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             Modelo.Prestamos prestamo;
-            
+
             public void run() {
                 new EditarPrestamo(prestamo).setVisible(true);
             }

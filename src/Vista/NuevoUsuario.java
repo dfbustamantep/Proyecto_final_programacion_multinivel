@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import DAO.Imp.DAOUsuariosImpl;
+import DAO.Interfaces.DAOUsuarios;
 import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -255,13 +257,33 @@ public class NuevoUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldApellidoUsuarioActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-            if((jTextFieldNombre.getText()!="")&&(jTextFieldDocumento.getText()!="")&&(jTextFieldNombre.getText()!="")&&(jTextFieldApellidoUsuario.getText()!="")&&(jTextFieldCorreo.getText()!="")&&(jTextFieldNContacto.getText()!="")){
+        Long documentoUsuario=Long.parseLong(jTextFieldDocumento.getText());
+        String Nombre=jTextFieldNombre.getText();
+        String Apellido=jTextFieldApellidoUsuario.getText();
+        String Correo=jTextFieldCorreo.getText();
+        Long nContacto=Long.parseLong(jTextFieldNContacto.getText());
+        
                 generarReporte();
                 this.setVisible(false);
                 Usuarios usuarios=new Usuarios();
                 usuarios.setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(null,"Por favor llene todos los campos");
+        
+            Modelo.Usuarios usuario=new Modelo.Usuarios();
+            
+            usuario.setDocumento(documentoUsuario);
+            usuario.setNombre(Nombre);
+            usuario.setApellido(Apellido);
+            usuario.setCorreo(Correo);
+            usuario.setnContacto(nContacto);
+            
+            try{
+                DAOUsuarios usuarisd= new DAOUsuariosImpl();
+                usuarisd.Registrar(usuario);
+                JOptionPane.showMessageDialog(null, "Registro exitoso");
+                
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage());
             }
            
     }//GEN-LAST:event_jButtonGuardarActionPerformed

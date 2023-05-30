@@ -8,7 +8,9 @@ package Modelo;
  *
  * @author DBUSTAMANTEP
  */
+//en esta clase tenemos todos los atributos que tienen nuestras tablas en la bd
 public class Prestamos {
+
     private int ID;
     int ISBNLibro;
     private long documentoUsuario;
@@ -21,7 +23,7 @@ public class Prestamos {
     public void setID(int ID) {
         this.ID = ID;
     }
-       
+
     public int getISBNLibro() {
         return ISBNLibro;
     }
@@ -45,6 +47,5 @@ public class Prestamos {
     public void setEstado(String Estado) {
         this.Estado = Estado;
     }
-    
-    
+
 }

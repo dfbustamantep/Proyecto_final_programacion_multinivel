@@ -5,12 +5,15 @@
 package Vista;
 
 import DAO.Imp.DAOPrestamosImpl;
+import DAO.Imp.DAOUsuariosImpl;
 import DAO.Interfaces.DAOPrestamos;
+import DAO.Interfaces.DAOUsuarios;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -37,6 +40,8 @@ public class Prestamos extends javax.swing.JFrame {
         this.modelo.addColumn("ISBN libro");
         this.modelo.addColumn("Documento usuario");
         this.modelo.addColumn("Estado");
+        
+        cargarDatos();
     }
     
    
@@ -359,11 +364,13 @@ public class Prestamos extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelExitMousePressed
 
     private void jButtonBorrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarPrestamoActionPerformed
+        //creamos un objeto de nuestra clase dao para hacer uso de su metodo eliminar
         DAOPrestamos prestamos=new DAOPrestamosImpl();
+        //verificamos que el usuario si este selccionando un dato de la tabla
          if(jTablePrestamos.getSelectedRow()>-1){
                 //for(int i:jTableLibros.getSelectedRow()){
                   try{
-                       //conseguimos el id del linro que se esta seleccionando en la tabla
+                       //conseguimos el id del prestamo que se esta seleccionando en la tabla y borramos ese fila de la tabla
                       prestamos.Eliminar((int)jTablePrestamos.getValueAt(jTablePrestamos.getSelectedRow(), 0));
                       modelo.removeRow(jTablePrestamos.getSelectedRow());
                   }
@@ -384,10 +391,17 @@ public class Prestamos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNuevoPrestamoActionPerformed
 
     private void jButtonEditrarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditrarPrestamoActionPerformed
+        //System.out.println(jTablePrestamos.getSelectedRow());
+        //verificamos que el usuario seleccione un dato
         if(jTablePrestamos.getSelectedRow()>-1){
+            //del dato selccionado conseguimos el id
             int id=(int)jTablePrestamos.getValueAt(jTablePrestamos.getSelectedRow(), 0);
+            //System.out.println("id prestamo "+id);
+            //creamos un objeto del dao
             DAOPrestamos dao=new DAOPrestamosImpl();
+            
             try {
+                //a nuestro jframe le enviamos por parametros el objeto a editar
                 this.setVisible(false);
                 EditarPrestamo editar=new EditarPrestamo(dao.getPrestamosbyID(id));
                 editar.setVisible(true);
@@ -464,4 +478,15 @@ public class Prestamos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTablePrestamos;
     // End of variables declaration//GEN-END:variables
+
+    private void cargarDatos() {
+        try{
+            DAOPrestamos prestamos=new DAOPrestamosImpl();
+            List<Modelo.Prestamos>lista=prestamos.Lista();
+            prestamos.Lista().forEach((u) -> modelo.addRow(new Object[]{u.getID(),u.getISBNLibro(),u.getDocumentoUsuario(),u.getEstado(),}));
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+    }
+}
 }
