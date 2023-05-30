@@ -18,10 +18,10 @@ import java.util.List;
  */
 public class DAOUsuariosImpl extends Connector implements DAOUsuarios {
 
-    Connector connector = null;
+    private Connector connector;
 
     public DAOUsuariosImpl() {
-        this.connector = new Connector();
+        this.connector = new Connector()/*Connector.getConnection()*/;
     }
     
     //creamos un registro de usuario

@@ -4,6 +4,7 @@
  */
 package Vista;
 
+import database.Connector;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
@@ -28,10 +29,12 @@ public class Home extends javax.swing.JFrame {
      * Creates new form Home
      */
     String url;
+    //private Connector conector;
+    
     @SuppressWarnings("empty-statement")
     public Home() {
         initComponents();
-        
+        //conector=Connector.getConnection();
         LocalDate now=LocalDate.now();
         Locale spanishLocale=new Locale("es","ES");
         jLabelTituloFecha.setText(now.format(DateTimeFormatter.ofPattern("'Hoy es' EEEE dd 'de' MMMM 'de' YYYY",spanishLocale)));

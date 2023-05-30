@@ -20,7 +20,7 @@ public class DAOLibrosImpl extends Connector implements DAOLibros {
     Connector connector = null;
 
     public DAOLibrosImpl() {
-        this.connector = new Connector();
+        this.connector = new Connector();//Connector.getConnection();
     }
     //crear un libro
     @Override

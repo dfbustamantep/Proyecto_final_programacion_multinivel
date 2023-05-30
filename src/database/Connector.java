@@ -14,8 +14,10 @@ import java.sql.*;
 public class Connector {
     private String nombreDatabase="biblioteca";
     private Connection connection=null;
-
-    public Connector() {
+    //private static Connector connector;
+    
+//se usa el constructor priavte ya que se va a a hacer uso del patro de diseño singleston
+    /*private*/ public Connector() {
          try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
@@ -27,7 +29,12 @@ public class Connector {
         }
     }
 
-    public Connection getConnection() {
+    public /*static Connector */Connection getConnection() {
+        
+        /*if(connector==null){
+            connector=new Connector();
+        }
+        return connector;*/
         return connection;
     }
     

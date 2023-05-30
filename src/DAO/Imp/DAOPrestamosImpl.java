@@ -21,7 +21,7 @@ import java.util.ArrayList;
 //en esta clase creamos todos los metodos que escribimos en el DAO
 public class DAOPrestamosImpl extends Connector implements DAOPrestamos {
 
-    Connector connector = null;
+     Connector connector ;
 
     public DAOPrestamosImpl() {
         this.connector = new Connector();
