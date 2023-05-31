@@ -62,7 +62,7 @@ public class DAOUsuariosImpl /*extends Connector*/ implements DAOUsuarios {
 
             st.executeUpdate();
             st.close();
-            connector.getConnection().close();
+            //connector.getConnection().close();
         } catch (Exception e) {
             System.out.println("Error modificacion del usuario " + e);
         }
@@ -80,7 +80,7 @@ public class DAOUsuariosImpl /*extends Connector*/ implements DAOUsuarios {
 
             st.executeUpdate();
             st.close();
-            connector.getConnection().close();
+            //connector.getConnection().close();
         } catch (Exception e) {
             System.out.println("Error eliminacion del registro " + e);
         }
@@ -111,7 +111,7 @@ public class DAOUsuariosImpl /*extends Connector*/ implements DAOUsuarios {
             rs.close();
             st.close();
         } catch (Exception e) {
-            System.out.println("Error " + e);
+            System.out.println("Error listar" + e);
         }
         return lista;
     }
@@ -147,7 +147,7 @@ public class DAOUsuariosImpl /*extends Connector*/ implements DAOUsuarios {
             rs.close();
             st.close();
         } catch (Exception e) {
-            System.out.println("Error nose pudo conseguir el usuario" + e);
+            System.out.println("Error no se pudo conseguir el usuario" + e);
         }
         return usuario;
     }

@@ -259,10 +259,7 @@ public class Prestamos extends javax.swing.JFrame {
         jTablePrestamos.setForeground(new java.awt.Color(0, 0, 0));
         jTablePrestamos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "ID", "Nombre libro", "Nombre usuario", "Estado"
@@ -375,6 +372,7 @@ public class Prestamos extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
         }
+        cargarDatos();
     }//GEN-LAST:event_jButtonBorrarPrestamoActionPerformed
 
     private void jButtonNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoPrestamoActionPerformed
@@ -406,6 +404,7 @@ public class Prestamos extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
         }
+        cargarDatos();
     }//GEN-LAST:event_jButtonEditrarPrestamoActionPerformed
 
     /**

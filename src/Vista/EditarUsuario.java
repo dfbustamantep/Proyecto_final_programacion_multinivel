@@ -54,6 +54,7 @@ public class EditarUsuario extends javax.swing.JFrame {
         jTextFieldNContacto = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         LblNContacto = new javax.swing.JLabel();
+        jButtonCnacelar = new javax.swing.JButton();
         imagen = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jTextFieldDocumento = new javax.swing.JTextField();
@@ -137,7 +138,7 @@ public class EditarUsuario extends javax.swing.JFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 600, -1, 50));
+        jPanelFondo.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 600, -1, 50));
 
         jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -199,9 +200,21 @@ public class EditarUsuario extends javax.swing.JFrame {
         LblNContacto.setText("Numero de contacto");
         jPanelFondo.add(LblNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 330, 40));
 
+        jButtonCnacelar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCnacelar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButtonCnacelar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCnacelar.setText("Cancelar");
+        jButtonCnacelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCnacelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCnacelarActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jButtonCnacelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 600, -1, 50));
+
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/usuario1.png"))); // NOI18N
         imagen.setText("jLabel1");
-        jPanelFondo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 540, 610));
+        jPanelFondo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 540, 610));
 
         jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
@@ -324,6 +337,13 @@ public class EditarUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDocumentoActionPerformed
 
+    private void jButtonCnacelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCnacelarActionPerformed
+        JOptionPane.showMessageDialog(null, "Edición del usuario cancelada");
+        this.setVisible(false);
+        Usuarios usuarios = new Usuarios();
+        usuarios.setVisible(true);
+    }//GEN-LAST:event_jButtonCnacelarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -370,6 +390,7 @@ public class EditarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel LblnomUsuario;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel imagen;
+    private javax.swing.JButton jButtonCnacelar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JSeparator jSeparator2;

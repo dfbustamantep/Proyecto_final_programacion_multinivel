@@ -53,6 +53,7 @@ public class NuevoLibro extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jTextFieldFechaP = new javax.swing.JTextField();
         LblfechaP = new javax.swing.JLabel();
+        jButtonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -132,7 +133,7 @@ public class NuevoLibro extends javax.swing.JFrame {
                 jButtonGuaradrActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 630, -1, 50));
+        jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 630, -1, 50));
 
         jTextFieldISBN.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldISBN.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -195,7 +196,7 @@ public class NuevoLibro extends javax.swing.JFrame {
         jPanelFondo.add(LblResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 540, 330, 40));
 
         jimagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/nuevolibro.png"))); // NOI18N
-        jPanelFondo.add(jimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 320, 500));
+        jPanelFondo.add(jimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 360, 550));
 
         Lblnomlibro.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         Lblnomlibro.setForeground(new java.awt.Color(0, 0, 0));
@@ -249,15 +250,27 @@ public class NuevoLibro extends javax.swing.JFrame {
         LblfechaP.setText("Fecha de publicación");
         jPanelFondo.add(LblfechaP, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 330, 40));
 
+        jButtonCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCancelar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 630, -1, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         pack();
@@ -360,6 +373,13 @@ public class NuevoLibro extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFechaPActionPerformed
 
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        JOptionPane.showMessageDialog(null, "Cancelación creación de un nuevo libro");
+        this.setVisible(false);
+        Libros libros = new Libros();
+        libros.setVisible(true);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
     private void generarReporte() {
         try {
             BufferedWriter outStream = new BufferedWriter(new FileWriter("ReporteNuevosLibros.csv", true));
@@ -421,6 +441,7 @@ public class NuevoLibro extends javax.swing.JFrame {
     private javax.swing.JLabel LblfechaP;
     private javax.swing.JLabel Lblnomlibro;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGuaradr;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JSeparator jSeparator2;

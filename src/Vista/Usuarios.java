@@ -365,10 +365,11 @@ public class Usuarios extends javax.swing.JFrame {
             } catch (Exception e) {
                 System.out.println("Error en eliminacion" + e.getMessage());
             }
-            // }
+
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
         }
+        cargarDatos();
     }//GEN-LAST:event_jButtonBorrarUsuarioActionPerformed
 
     private void jButtonNuevoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoUsuarioActionPerformed
@@ -395,6 +396,7 @@ public class Usuarios extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
         }
+        cargarDatos();
     }//GEN-LAST:event_jButtonEditrarUsuarioActionPerformed
 
     /**

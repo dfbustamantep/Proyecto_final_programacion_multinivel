@@ -36,7 +36,7 @@ public class DAOPrestamosImpl implements DAOPrestamos {
 
             st.executeUpdate();
             st.close();
-            connector.getConnection().close();
+            //connector.getConnection().close();
         } catch (Exception e) {
             System.out.println("Error registro" + e);
         };
@@ -65,7 +65,7 @@ public class DAOPrestamosImpl implements DAOPrestamos {
             st.executeUpdate();
             st.close();
 
-            connector.getConnection().close();
+            //connector.getConnection().close();
             System.out.println("modifiacion exitosa");
 
         } catch (Exception e) {

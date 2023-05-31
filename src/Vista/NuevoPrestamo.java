@@ -46,6 +46,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         jTextFieldISBN = new javax.swing.JTextField();
         jTextFieldEstadoPrestamo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jButtonCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -125,7 +126,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
                 jButtonGuaradrActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, 50));
+        jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, 50));
 
         jTextFieldISBN.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldISBN.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -164,6 +165,18 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/prestamo.png"))); // NOI18N
         jPanelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 550, 290));
 
+        jButtonCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCancelar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 410, -1, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -172,7 +185,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 484, Short.MAX_VALUE)
         );
 
         pack();
@@ -243,6 +256,13 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     private void jTextFieldEstadoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEstadoPrestamoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEstadoPrestamoActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        JOptionPane.showMessageDialog(null, "Creación del prestamo cancelada");
+        this.setVisible(false);
+        Prestamos prestamos = new Prestamos();
+        prestamos.setVisible(true);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 //metodo donde generamos un reporte al csv
 
     private void generarReporte() {
@@ -303,6 +323,7 @@ public class NuevoPrestamo extends javax.swing.JFrame {
     private javax.swing.JLabel LblUsuario;
     private javax.swing.JLabel Lblnomlibro;
     private javax.swing.JLabel Titulo;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGuaradr;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelFondo;

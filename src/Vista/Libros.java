@@ -366,6 +366,7 @@ public class Libros extends javax.swing.JFrame {
                 //conseguimos el id del linro que se esta seleccionando en la tabla
                 libros.Eliminar((int) jTableLibros.getValueAt(jTableLibros.getSelectedRow(), 0));
                 modelo.removeRow(jTableLibros.getSelectedRow());
+                
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
@@ -374,7 +375,7 @@ public class Libros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Seleccione un registro a eliminiar");
         }
 
-        //cargarDatos();  
+        cargarDatos();  
     }//GEN-LAST:event_jButtonBorrarLibroActionPerformed
 
     private void jButtonNuevolibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevolibroActionPerformed
@@ -382,6 +383,7 @@ public class Libros extends javax.swing.JFrame {
 
         Vista.NuevoLibro nuevo = new NuevoLibro();
         nuevo.setVisible(true);
+        cargarDatos();  
     }//GEN-LAST:event_jButtonNuevolibroActionPerformed
 
     private void jButtonEditarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarLibroActionPerformed
@@ -392,6 +394,7 @@ public class Libros extends javax.swing.JFrame {
                 this.setVisible(false);
                 EditarLibro editar = new EditarLibro(dao.getLibrobyISBN(ISBN));
                 editar.setVisible(true);
+               // cargarDatos();  
             } catch (Exception ex) {
                 System.out.println("Error al intentar editar " + ex);
             }
@@ -399,6 +402,7 @@ public class Libros extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
         }
+        cargarDatos();
     }//GEN-LAST:event_jButtonEditarLibroActionPerformed
 
     /**

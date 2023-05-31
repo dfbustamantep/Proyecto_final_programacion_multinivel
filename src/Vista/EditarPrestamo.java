@@ -51,6 +51,7 @@ public class EditarPrestamo extends javax.swing.JFrame {
         jTextFieldISBN = new javax.swing.JTextField();
         jTextFieldEstadoPrestamo = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jButtonGuaradr1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -129,7 +130,7 @@ public class EditarPrestamo extends javax.swing.JFrame {
                 jButtonGuaradrActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, 50));
+        jPanelFondo.add(jButtonGuaradr, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, 50));
 
         jTextFieldISBN.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldISBN.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -167,6 +168,18 @@ public class EditarPrestamo extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/prestamo.png"))); // NOI18N
         jPanelFondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 550, 290));
+
+        jButtonGuaradr1.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonGuaradr1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButtonGuaradr1.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonGuaradr1.setText("Cancelar");
+        jButtonGuaradr1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonGuaradr1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuaradr1ActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jButtonGuaradr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 420, 120, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -246,6 +259,13 @@ public class EditarPrestamo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEstadoPrestamoActionPerformed
 
+    private void jButtonGuaradr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuaradr1ActionPerformed
+       JOptionPane.showMessageDialog(null, "Edición del prestamo cancelada");
+        this.setVisible(false);
+        Prestamos prestamos = new Prestamos();
+        prestamos.setVisible(true);
+    }//GEN-LAST:event_jButtonGuaradr1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -291,6 +311,7 @@ public class EditarPrestamo extends javax.swing.JFrame {
     private javax.swing.JLabel Lblnomlibro;
     private javax.swing.JLabel Titulo;
     private javax.swing.JButton jButtonGuaradr;
+    private javax.swing.JButton jButtonGuaradr1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JSeparator jSeparator2;

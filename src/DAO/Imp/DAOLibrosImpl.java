@@ -64,9 +64,9 @@ public class DAOLibrosImpl implements DAOLibros {
             st.setInt(8, libro.getISBN());
             st.executeUpdate();
             st.close();
-            connector.getConnection().close();
+            //connector.getConnection().close();
         } catch (Exception e) {
-            System.out.println("Error registro " + e);
+            System.out.println("Error modificar " + e);
         }
     }
 
@@ -84,7 +84,7 @@ public class DAOLibrosImpl implements DAOLibros {
             st.close();
             connector.getConnection().close();
         } catch (Exception e) {
-            System.out.println("Error registro " + e);
+            System.out.println("Error eliminar " + e);
         }
     }
 
@@ -112,7 +112,7 @@ public class DAOLibrosImpl implements DAOLibros {
             rs.close();
             st.close();
         } catch (Exception e) {
-            System.out.println("Error " + e);
+            System.out.println("Error listar" + e);
         }
         return lista;
     }
@@ -141,7 +141,7 @@ public class DAOLibrosImpl implements DAOLibros {
             rs.close();
             st.close();
         } catch (Exception e) {
-
+            System.out.println("Error getlibro "+e);
         }
         return libro;
     }

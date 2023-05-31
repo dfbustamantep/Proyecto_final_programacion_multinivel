@@ -47,6 +47,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
         jTextFieldNContacto = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         LblNContacto = new javax.swing.JLabel();
+        jButtonCancelar = new javax.swing.JButton();
         imagen = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jTextFieldDocumento = new javax.swing.JTextField();
@@ -130,7 +131,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
                 jButtonGuardarActionPerformed(evt);
             }
         });
-        jPanelFondo.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 600, -1, 50));
+        jPanelFondo.add(jButtonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, -1, 50));
 
         jTextFieldNombre.setBackground(new java.awt.Color(255, 255, 255));
         jTextFieldNombre.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -192,9 +193,21 @@ public class NuevoUsuario extends javax.swing.JFrame {
         LblNContacto.setText("Numero de contacto");
         jPanelFondo.add(LblNContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 330, 40));
 
+        jButtonCancelar.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonCancelar.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanelFondo.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 600, 110, 50));
+
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/Imagenes/usuario1.png"))); // NOI18N
         imagen.setText("jLabel1");
-        jPanelFondo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 540, 610));
+        jPanelFondo.add(imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 570, 620));
 
         jSeparator6.setBackground(new java.awt.Color(0, 0, 0));
         jSeparator6.setForeground(new java.awt.Color(0, 0, 0));
@@ -226,13 +239,11 @@ public class NuevoUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.DEFAULT_SIZE, 824, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -323,6 +334,13 @@ public class NuevoUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDocumentoActionPerformed
 
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        JOptionPane.showMessageDialog(null, "Creación nuevo usuario cancelada");
+        this.setVisible(false);
+        Usuarios usuarios = new Usuarios();
+        usuarios.setVisible(true);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
+
     private void generarReporte() {
         try {
             BufferedWriter outStream = new BufferedWriter(new FileWriter("ReporteNuevosUsuarios.csv", true));
@@ -382,6 +400,7 @@ public class NuevoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel LblnomUsuario;
     private javax.swing.JLabel Titulo;
     private javax.swing.JLabel imagen;
+    private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JSeparator jSeparator2;

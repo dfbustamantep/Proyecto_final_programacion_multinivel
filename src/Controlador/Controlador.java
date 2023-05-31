@@ -53,7 +53,6 @@ public class Controlador {
         this.nPrest = nPrest;
         this.prest = prest;
         this.usua = usua;
-        //conector=Connector.getConnection();
         this.conector = conector;
     }
 
