@@ -404,7 +404,7 @@ public class Prestamos extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Seleccione un registro a editar");
         }
-        cargarDatos();
+        //cargarDatos();
     }//GEN-LAST:event_jButtonEditrarPrestamoActionPerformed
 
     /**

@@ -40,7 +40,7 @@ public class DAOLibrosImpl implements DAOLibros {
 
             st.executeUpdate();
             st.close();
-            connector.getConnection().close();
+           // connector.getConnection().close();
         } catch (Exception e) {
             System.out.println("Error registro " + e);
         }
