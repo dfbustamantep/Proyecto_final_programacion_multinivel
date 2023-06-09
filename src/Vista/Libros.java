@@ -74,7 +74,6 @@ public class Libros extends javax.swing.JFrame {
         jButtonEditarLibro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
 
